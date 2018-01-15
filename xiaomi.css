@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('font/iconfont.eot');
+    src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('font/iconfont.woff') format('woff'),
+    url('font/iconfont.ttf') format('truetype'),
+    url('font/iconfont.svg#iconfont') format('svg');
+}
+ul{
+    list-style-type: none;
+    /*text-decoration: none;*/
+}
+#xiaomishangcheng{
+    background: url("mistore_logo.png");
+    height: 98px;
+    width: 200px;
+    margin-left: 60px;
+}
+#zhuti{
+    background: url("634d319874c4778ed0674f8339834f9d.jpg");
+    width: 100%;
+    height: 588px;
+    /*position: fixed;*/
+    background-position: -643px 0;
+}
+#login{
+    background-color: white;
+    float: right;
+    margin-left: 0px;
+    margin-top: 36px;
+    margin-right: 68px;
+    width: 388px;
+    height: 512px;
+
+}
+.u{
+    margin-top: 40px;
+    margin-left: 60px;
+    margin-bottom: 45px;
+}
+.u a{
+    padding: 27px 0 24px;
+    text-align: center;
+    font-size: 24px;
+    color: #999999;
+}
+#denglu{
+    color: #ef5b00;
+}
+.u span{
+    width: 1px;
+    height: 24px;
+    margin: 0 35px 0 42px;
+    border: 1px solid #e0e0e0;
+}
+input{
+    margin-left: 26px;
+    width: 306px;
+    height: 22px;
+    line-height: 22px;
+    padding: 13px 16px 13px 14px;
+    margin-bottom: 17px;
+}
+#log{
+    margin-top: 16px;
+    width: 341px;
+    height: 48px;
+    background-color: coral;
+    border: 0px;
+    color: white;
+    font-size: 15px;
+}
+#a1{
+    color: #ef5b00;
+    border: 0 none;
+    height: auto;
+    line-height: normal;
+    margin-left: 26px;
+    font-size: 13px;
+    float: left;
+    margin-right: 95px;
+
+}
+#ab{
+    float: left;
+    margin-top: -2px;
+}
+#ab ul li a{
+    border: 0 none;
+    height: auto;
+    font-size: 13px;
+    color: #999999;
+}
+#ab ul li{
+    display: inline-block;
+}
+
+#ab span{
+    padding-left: 5px;
+    color: #999999;
+    font-size: 13px;
+}
+#three{
+    margin-top: 105px;
+    margin-left: 28px;
+    margin-right: 21px;
+}
+.fie {
+    border-bottom:0px;
+    border-left:0px;
+    border-right: 0px;
+    border-top: 1px solid #ddd;
+}
+legend{
+    font-size: 13px;
+    color: #999;
+}
+#photo{
+    margin-left: 70px;
+
+}
+.ph{
+    background: url("icons_type.png");
+    margin: 0 17px;
+    display: inline-block;
+    font-family:"iconfont";
+
+}
