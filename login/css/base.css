@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding: 0;
+}
+/*global css start*/
+.clearfix:after{
+    content:"";
+    clear: both;
+    display: block;
+}
+/*global css end*/
+/* header css start*/
+.header a{
+    display: inline-block;
+}
+.header{
+    width: 1130px;
+    margin: 0 auto;
+    vertical-align: top; /*line-height:0px;调节基线*/
+}
+/*container css start*/
+.container{
+    background-image: url("../images/634d319874c4778ed0674f8339834f9d.jpg");/*给定图片需要设置宽度*/
+    height: 588px;
+    background-position: center;
+    /*background: url("../images/634d319874c4778ed0674f8339834f9d.jpg") center;*/
+}
+.container .login-bar{
+    width: 1130px;
+    margin: 0 auto;
+}
+.container .login-form{
+    width: 410px;
+    height: 524px;
+    background-color: #fff;
+    float: right;
+    margin-top: 32px;
+}
+.container .top-text{
+    padding: 27px 0 24px;
+    text-align: center;
+    font-size: 24px;
+}
+.container .top-text a{
+    text-decoration: none; /*下划线*/
+    color: #666;
+}
+.container .border-line{
+    border: 1px solid #e0e0e0;
+    /*height: 24px;!*span行级元素不识别height属性*!*/
+    margin: 0 35px;
+}
+.container .top-text a:first-child{
+    color: #f56600;
+}
+.container .top-text a:hover{
+    color: #f56600;
+}
+.container .login-input input{
+    font-family:  arial,"Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size: 100%;
+    width: 314px;
+    display: inline-block;
+    height: 22px;
+    padding: 13px 16px 13px 14px;
+    margin-bottom: 14px;
+}
+.container .login-content{
+    width: 348px;
+    margin: 0 auto;
+}
+/*.container .login-btn input[type="submit"]{*/
+/*}*/
+.container .login-btn input{
+    border: none;
+    background-color: #f56600;
+    width: 100%;
+    height: 50px;
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    /*鼠标滑过变成小手*/
+    margin-bottom: 10px;
+}
+.container .small-text{
+    font-size: 14px;
+    color: #757575;
+}
+.container .small-text a{
+    text-decoration: none;
+    color: #757575;
+}
+/*float脱离文档流导致父亲没有宽度和高度bfc*/
+.container .st-left{
+    float: left;
+}
+.container .st-left a{
+    color: #f56600;
+}
+.container .st-right{
+    float: right;
+}
+.container .st-right a:hover{
+    color: #f56600;
+}
+.container .login-type{
+    margin-top: 173px;
+}
+.container .login-type fieldset{
+    border: 0;
+   border-top:1px solid #dddddd;
+    color: #bbb;
+    font-size: 14px;
+    padding-top: 10px;
+}
+.container .login-icon{
+    text-align: center;
+    /*块级元素内的行级元素居中*/
+}
+.container .login-icon a{
+    width: 30px;
+    height: 30px;
+    background-color: #757575;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 17px;
+
+}
+.container .login-icon i{
+    margin-top: 5px;
+    width: 18px;
+    height: 18px;
+    background-image: url("../images/icons_type.png");
+    display: inline-block;
+}
+.container .login-icon .qq i{
+    background-position: -19px 0;
+}
+.container .login-icon .qq:hover{
+    background-color: #0288d1;
+ }
+.container .login-icon .sina i{
+    background-position: -38px 0;
+}
+.container .login-icon .sina:hover{
+    background-color: #d32f2f;
+}
+.container .login-icon .alipay i{
+    background-position: -57px 0;
+    width: 25px;
+}
+.container .login-icon .alipay:hover{
+    background-color: #0ae;
+}
+.container .login-icon .wechat i{
+    background-position: -84px 0;
+    width: 23px;
+}
+.container .login-icon .wechat:hover{
+    background-color: #00d20d;
+}
+/*container css end*/
