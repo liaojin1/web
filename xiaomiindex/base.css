@@ -267,7 +267,7 @@ float: right;
 .slider-bottom .bottom-1{
     width:234px;
     height:170px;
-    background-color: #757575;
+    background-color: #5f5750;
     float: left;
 }
 .slider-bottom ul li{
@@ -295,5 +295,32 @@ float: right;
 .slider-bottom .bottom-img img{
     width:316px;
     height:170px;
+}
+.slider-bottom ul li:after{
+    top: 12px;
+    left: 78px;
+    width: 1px;
+    height: 70px;
+    position: absolute;
+    content: "";
+    background: #665e57;
+}
+.slider-bottom ul li:before{
+    top: 87px;
+    left: 8px;
+    width: 64px;
+    height: 1px;
+    position: absolute;
+    content: "";
+    background: #665e57;
+}
+.bottom-1 ul li{
+    position: relative;
+}
+.a:after{
+    display: none;
+}
+.b:before{
+    display: none;
 }
 /*slider-bar end*/
