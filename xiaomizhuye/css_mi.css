@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('../xiaomiindex/font/iconfont.eot');
+    src: url('../xiaomiindex/font/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../xiaomiindex/font/iconfont.woff') format('woff'),
+    url('../xiaomiindex/font/iconfont.ttf') format('truetype'),
+    url('../xiaomiindex/font/iconfont.svg#iconfont') format('svg');
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+    url('iconfont.woff') format('woff'),
+    url('iconfont.ttf') format('truetype'),
+    url('iconfont.svg#iconfont') format('svg');
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('image/iconfont.eot');
+    src: url('image/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('image/iconfont.woff') format('woff'),
+    url('image/iconfont.ttf') format('truetype'),
+    url('image/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*nav css start*/
+.nav{
+    background-color: #333;
+    width: 1280px;
+    height: 40px;
+    line-height: 39px;
+}
+.nav-left{
+    float: left;
+}
+.nav-right{
+    float: right;
+}
+.nav a{
+    color: #b0b0b0;
+    font-size: 12px;
+    text-decoration: none;
+}
+.nav a:hover{
+    color: white;
+}
+.nav span{
+    color: #424242;
+    font-size: 12px;
+}
+.shop{
+    float: right;
+    background: #424242;
+    margin-left: 15px;
+    height: 40px;
+}
+.shop a{
+    display: inline-block;
+    width: 120px;
+    color: #b0b0b0;
+    font-size: 12px;
+    text-align: center;
+    height: 40px;
+}
+.shop a i{
+    font-family: "iconfont";
+    font-size: 20px;
+
+}
+.shop a:hover{
+    background-color: #fff;
+    color: #f56600;
+}
+/*nav css end*/
+/*container css start*/
+.container{
+    width: 1226px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container .logo{
+    width: 62px;
+    float: left;
+}
+.container .con-nav{
+    float: left;
+    margin-left: 150px;
+}
+.container .logo a{
+    display: block;
+    background: url(image/mi-logo.png) center;
+    height: 55px;
+    width: 55px;
+    background-color: #f56600;
+}
+.container .con-nav ul{
+    float: left;
+}
+.container .con-nav li{
+    float: left;
+    list-style-type: none;
+}
+.container .con-nav a{
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    line-height: 55px;
+    padding: 26px 10px 38px;
+}
+.container .con-nav a:hover{
+    color: #f56600;
+}
+.container .header{
+    margin-top: 22px;
+}
+.search{
+    float: right;
+    height: 55px;
+    width: 298px;
+    position: relative;
+}
+.search .input-text{
+    height: 50px;
+    width: 206px;
+    padding: 1px 17px;
+    border: 1px solid #e0e0e0;
+    /*position: absolute;*/
+}
+.search .input-btn{
+    font-weight: 300;
+    height: 54px;
+    border: 1px solid #e0e0e0;
+    border-left: 0;
+    float: right;
+    background-color: white;
+    width: 56px;
+    margin-left: -1px;
+    font-family: "iconfont";
+}
+.search .input-btn:hover{
+    background-color: #f56600;
+    cursor: pointer;
+    color: white;
+}
+.biaoqian a{
+    margin-left: 5px;
+    padding: 0 5px;
+    font-size: 12px;
+    background: #eee;
+    color: #757575;
+    text-decoration: none;
+}
+.biaoqian a:hover{
+    background-color: #f56600;
+    color: white;
+}
+.biaoqian{
+    position: absolute;
+    top: 17px;
+    right: 89px;
+}
+/*container css end*/
+/*container-a css start*/
+.container-a{
+    height: 460px;
+    margin-top: 30px;
+    position: relative;
+    background: url("image/xmad_15160255355041_frNaL.jpg") no-repeat;
+}
+.container .left-con{
+    width: 234px;
+    height: 460px;
+    float: left;
+}
+.container .left-con ul{
+    width: 234px;
+    float: left;
+    height: 420px;
+    color: #fff;
+    background: #333;
+    background: rgba(0,0,0,0.6);
+    padding: 20px 0
+}
+.container .left-con li{
+    list-style-type: none;
+    height: 42px;
+    position: relative;
+}
+.container .left-con li:hover{
+    background-color: #f56600;
+
+}
+.container .left-con a{
+    display: block;
+    width: 204px;
+    text-decoration: none;
+    line-height: 42px;
+    padding-left: 30px;
+    color: #ffffff;
+    font-size: 14px;
+}
+.container .left-con i{
+    float: right;
+    color: rgba(255,255,255,0.5);
+    position: absolute;
+    right: 15px;
+    font-weight: 900;
+}
+.container-a .jiantou a{
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    color: rgba(75,75,75,0.5);
+    font-size: 43px;
+    right: 0px;
+    text-decoration: none;
+    line-height: 69px;
+}
+.container-a .jiantou a:hover{
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border-radius: 1%;
+}
+.container-a .jt-one a{
+    left: 234px;
+}
+.point{
+    width: 400px;
+    height: 18px;
+    position: absolute;
+    bottom: 18px;
+    right: 30px;
+    float: right;
+}
+.point{
+    text-align: right;
+}
+.point .p{
+    display: inline-block;
+    margin: 0 5px;
+    width: 7px;
+    height: 7px;
+}
+.point .p a{
+    text-decoration: none;
+    border:2px solid #fff;
+    border-color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    background: rgba(0,0,0,0.4);
+    color: rgba(0,0,0,0.0);
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 5px;
+}
+.point .p a:hover{
+    background: rgba(255,255,255,0.4);
+    border-color: rgba(0,0,0,0.3);
+}
+/*container-a css end*/
+/*container-b css start*/
+.container-b{
+    margin-top: 20px;
+}
+.container-b .b-nav{
+    width: 234px;
+    height: 170px;
+    background-color: #333;
+    float: left;
+}
+.container-b .b-nav i{
+    font-family: "iconfont";
+}
+.container-b .b-nav li{
+    list-style-type: none;
+    width: 76px;
+    height: 82px;
+    display: inline-block;
+}
+.container-b .b-nav a{
+    text-decoration: none;
+    color: #757575;
+
+}
+/*container-b css end*/
