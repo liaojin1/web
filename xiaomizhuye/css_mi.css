@@ -399,15 +399,17 @@ ul{
 .container-c .goods{
     height: 340px;
     padding-bottom: 40px;
+    overflow: hidden;
 }
 .container-c .goods ul{
     list-style-type: none;
+    width: 2000px;/*设置宽度配合overflow使用把溢出的内容隐藏*/
 }
 .container-c .goods li{
     height: 300px;
     padding-top: 39px;
     float: left;
-    width: 231px;
+    width: 234px;
     margin-right: 14px;
     background-color: #fafafa;
     border-top:1px solid;
