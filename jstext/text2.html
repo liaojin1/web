@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//   var b = window.confirm("吃啥");
+//   if(b){
+//       var num = window.prompt("几个人吃");
+//       var a = Math.random();
+//       a = Math.floor((a* 3)+1);
+//       switch (a){
+//           case 1:
+//               alert(num+"a");
+//               break;
+//           case 2:
+//               alert(num+"b");
+//               break;
+//           case 3:
+//               alert(num+"c");
+//               break;
+//           case 4:
+//               alert(num+"4");
+//               break;
+//       }
+//   }else{
+//       alert("no");
+//   }
+
+    var a = window.confirm("吃什么");
+    if(a){
+        var name1 = new Array();
+        var num = window.prompt("几个人吃");
+        if(!isNaN(num)){
+            console.log(num);
+            for(var i = 1;i<=num;i++){
+                name1.push(prompt("第"+i+"个人叫啥"));
+            }
+            console.log(name1);
+            for(var b = 1;b<=num;b++){
+                var a = Math.random();
+                a = Math.floor((a*3)+1);
+                switch(a){
+                    case 1:
+                        alert(name1[b-1]+"吃菜1");
+                        break;
+                    case 2:
+                        alert(name1[b-1]+"吃菜2");
+                        break;
+                    case 3:
+                        alert(name1[b-1]+"吃菜3");
+                        break;
+                    default:
+                        alert("别吃了");
+                }
+            }
+        }else{
+            alert("你输入有误");
+        }
+    }else{
+        alert("no");
+    }
+
+</script>
+</body>
+</html>

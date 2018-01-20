@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数据类型统一为弱类型number不分int float等
+    var a = 1;
+    var b = 2.5;
+    var c = "a";
+    var d = 'a';
+    var e = true;//""空字符串也属于false
+
+    var f = a+c+d;
+    document.writeln(f);
+
+    var g;
+    document.writeln(typeof g);//undefined
+
+    document.writeln(typeof e);//boolean
+
+   // var aa = 0.1+0.3;//0.4
+    var aa = 0.1+0.2;//0.30000000000000004
+    var bb = 0.1;
+    var cc = 0.2;
+    document.writeln((0.1*10+0.2*10)/10);//0.3
+
+    var h = "2";
+    document.writeln(a+h);//12
+    h = parseInt(h);//字符串转number型;
+    document.writeln(typeof+"2");//number
+
+    var i = parseInt(c);
+    document.writeln(i);//NaN
+
+    document.writeln(1/0);//Infinity/(-1/0)//-Infinity
+    console.log("1")
+    var n = 4+1+"1";//51
+    var m = "1"+1+4;//114
+    //只有加运算符特殊，当1+"2"结果12，而2-"1"结果为1
+</script>
+</body>
+</html>

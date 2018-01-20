@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    a="xiaohong"
+//    var person = {
+//        name:a,
+//        age:"19",
+//        sex:"girl",
+//        school:{
+//            middleschool:"11",
+//            heighschool:"",
+//        }
+//    }
+//    person.school.highschool="aa";
+//    console.log(person.name);
+    var a = window.prompt("有没有对象");
+    var person = {
+        name:"xiaohong",
+        age:"19",
+        sex:"girl",
+        school:{
+            highschool:"",
+        }
+    }
+    if(a=="you"||a=="meiyou"){
+        if(a=="meiyou"){
+            alert("o");
+        }else if(a=="you"){
+            alert(person.name+"年龄"+person.age);
+            person.school.highschool = window.prompt("那个学校");
+            alert(person.school.highschool);
+        }
+    }else{
+        alert("no");
+    }
+
+</script>
+</body>
+</html>
