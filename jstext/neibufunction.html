@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    var a = 1;
+//    (function fun() {
+//        console.log(a);
+//        (function b() {
+//            var aa = 2;
+//            console.log(a);
+//        })();
+//        console.log(aa);
+//    })();
+
+//    var a = 0;
+//(function fun() {
+//        a =1;
+//        console.log(a);
+//    })();
+
+var a = 0;
+(function () {
+    console.log(a);//undefind
+    var a = 2;
+    console.log(a);//2
+})();
+</script>
+</body>
+</html>
