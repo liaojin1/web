@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="tz-id">
+<button id="Btn">跳转</button>
+<script>
+    var aInput = document.getElementById("tz-id");//不同的获取方式下边适用不同的引用
+    var oBtn = document.getElementById("Btn");
+    /*如果getElemById则下面为aInput
+    * 如果为getElementsByTagName则下面使用数组引用
+    * 如果为getElementsByClassName则下面使用对象引用*/
+    oBtn.onclick = function () {
+        location.href = aInput.value;
+    }
+    //获取键盘点击事件
+    aInput.onkeydown = function (e) {
+//        console.log(e);
+        var keyCod = e.keyCode;
+        if(keyCod==13){
+            location.href = aInput.value;
+        }
+    }
+    //
+
+</script>
+</body>
+</html>

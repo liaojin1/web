@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        #big-img{
+            width: 404px;
+            height: 400px;
+            border: 1px solid #dddddd;
+        }
+        ul .aa{
+            border: 1px solid #dddddd;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <div id="div-one"><img src="" alt="" id="big-img"></div>
+    <div id="div-two">
+        <ul>
+            <li class="aa"><img src="94bd3e239684105ae890a2d990efca4a.jpg" alt=""></li>
+            <li class="aa"><img src="c5c654a5c22bfbcc286ba3fb2036a560.jpg" alt=""></li>
+            <li class="aa"><img src="94bd3e239684105ae890a2d990efca4a.jpg" alt=""></li>
+            <li class="aa"><img src="c5c654a5c22bfbcc286ba3fb2036a560.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var aLi = document.getElementsByTagName("img");
+    var oImg = document.getElementById("big-img")
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].onmouseover = function () {
+            var thisSrc = this.getAttribute("src");//获取图片地址
+//            console.log(thisSrc);
+            oImg.setAttribute("src",thisSrc);//设置图片地址
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    width: 150px;
+    border: 1px solid #dddddd;
+    list-style-type: none;
+    position: absolute;
+    display: none;
+}
+li{
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}

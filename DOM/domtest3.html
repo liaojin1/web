@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="testdiv" class="classN">点击</div>
+<div class="classN">dianji</div>
+<script>
+//   var a = document.getElementById("testdiv");
+    var b = document.getElementsByClassName("classN");//返回一个数组
+    var c = document.getElementsByTagName("div");//返回数组
+    b[0].onclick = function () {
+       console.log("2");
+   }
+
+//    console.log(a);
+//    function testfun() {
+//        console.log("1")
+//    }
+
+//    a.onclick = function () {
+//        console.log("1");
+//    }
+</script>
+</body>
+</html>

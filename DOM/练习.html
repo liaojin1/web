@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+            border: 1px solid #dddddd;
+            width: 150px;
+            text-align: center;
+            display: none;
+            position: absolute;
+        }
+        ul li{
+            border-bottom: 1px solid #dddddd;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul-menu" class="ul-cn">
+    <li links = "www.baidu.com">跳转</li>
+    <li>设置已读</li>
+    <li>设置未读</li>
+    <li>删除邮筒</li>
+</ul>
+<input type="text"id="test-input" value="hello">
+<script>
+    var oUl = document.getElementById("ul-menu");//获取对象
+    var aLi = document.getElementsByTagName("li");//array
+    var oInput = document.getElementById("test-input");
+//    var aUlCn = document.getElementsByClassName("ul-cn");//array
+//
+//    console.log(oUl);
+//    console.log(aLi[0].innerHTML);
+//    console.log(aUlCn);
+
+//    document.onclick = function () {//文档内点击鼠标触发事件
+//    }
+//事件三要素 事件源，事件处理函数，事件对象(e)
+    alert(oInput.value);//获取输入框的值
+    document.oncontextmenu = function (e) {//文档内点击鼠标触发事件(e有兼容性问题)
+//        console.log(e);//
+        e = e || window.event;//
+        oUl.style.display = "block";//如果隐藏了设置display：block即可显示
+        oUl.style.top=e.clientY+"px";
+        oUl.style.left = e.clientX+"px";
+        return false;//阻止浏览器点击右键弹出默认窗口（阻止默认窗口）
+    }
+    document.onclick = function () {
+        oUl.style.display = "none";//
+    }
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].onclick = function () {
+//            location.href = "http://www.baidu.com";//js控制跳转页面
+            var thisLink = this.getAttribute("Links");
+            location.href = "http://"+thisLink;
+//            console.log(i);//4
+//            alert(aLi[i].innerHTML);//错的
+
+//            console.log(this);
+            alert(this.innerText);//innerHTML获取文字和html标签，innerText获取文字不获取HTML标签
+        }
+    }
+
+//    oUl.onclick = function () {//给oUl对象绑定事件
+//        alert("2");
+//    }
+</script>
+</body>
+</html>

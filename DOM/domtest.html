@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            height: 3000px;
+            width: 200px;
+            background-color: red;
+        }
+        button {
+            position: fixed;
+            top:0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="test"></div>
+<button onclick="goBack()">返回</button>
+<script>
+    function goBack() {
+//        window.history.back();
+        window.history.go()
+    }
+
+
+//    window.open("http://www.baidu.com");//打开一个新窗口
+//    window.close();//关闭窗口
+
+//    function goTop() {
+////        window.scrollTo(0,0);//返回顶部的效果
+////        window.scrollBy(0,400);//正值往下移动，复制往上移动
+//    }
+//    var i =0;
+//    console.log(i);
+//    console.log(window.i);
+</script>
+</body>
+</html>

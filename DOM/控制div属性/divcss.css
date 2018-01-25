@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#d-div{
+    width: 100px;
+    height: 100px;
+    background-color: #00aaee;
+    margin: 100px auto;
+}
+#dd-div{
+    margin: 0 auto;
+    text-align: center;
+}

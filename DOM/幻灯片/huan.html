@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="huancss.css">
+</head>
+<body>
+
+    <div id="photo" class="clearfix">
+        <div><img src="photo/6ef55907-bbed-49be-a2bb-be0821b5f7b8.png" alt="" id="d-img"></div>
+        <div id="nav" class="clearfix">
+            <div id="i-left" class="clearfix">
+                <ul id="ul-left" class="clearfix">
+                    <li class="u-l" this-type="li-left">&lt</li>
+                    <li class="u-l" this-type="li-right">&gt</li>
+                </ul>
+            </div>
+            <div id="i-right" class="clearfix">
+                <ul id="ul-right" class="clearfix">
+                    <li class="u-l"><img src="photo/6ef55907-bbed-49be-a2bb-be0821b5f7b8.png" alt="">1</li>
+                    <li class="u-l"><img src="photo/725a37e3-78b7-4298-8098-c40097bf179d.png" alt="">2</li>
+                    <li class="u-l"><img src="photo/302f2608-655a-489c-a0c5-a3b9172defd1.png" alt="">3</li>
+                    <li class="u-l"><img src="photo/pms_1503909150.67293503!220x220.png" alt="">4</li>
+                    <li class="u-l"><img src="photo/848def18-47d9-4ca0-8822-c2ac61b83779.png" alt="">5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var aLi2 = document.getElementById("ul-right").getElementsByTagName("li");
+        var aLi1 = document.getElementById("ul-left").getElementsByTagName("li");
+        var aImg = document.getElementById("ul-right").getElementsByTagName("img");
+        var oDImg = document.getElementById("d-img");
+
+
+
+
+        for(var i = 0;i<aLi2.length;i++){
+            aLi2[i].index=i;
+            aLi2[i].onmouseover = function () {
+                var thisSrc = aImg[this.index].getAttribute("src");
+                oDImg.setAttribute("src",thisSrc);
+                for(var j = 0;j<aLi2.length;j++){
+                    aLi2[j].classList.remove("u-l2");
+                }
+                this.classList.add("u-l2");
+            }
+            aLi2[i].onmouseout = function () {
+                for(var j = 0;j<aLi2.length;j++){
+                    aLi2[j].classList.remove("u-l2");
+                }
+            }
+        }
+
+
+
+        var aa = 0;
+        for(var j = 0;j<aLi1.length;j++){
+            aLi1[j].onclick = function () {
+                var flag = this.getAttribute("this-type");
+                console.log(flag);
+                if (flag=="li-right") {
+                    if (aa >= 5) {
+                        aa = -1;
+                    }
+                    var thisSrc = aImg[++aa].getAttribute("src");
+                    oDImg.setAttribute("src", thisSrc);
+                } else {
+                    if (aa <= 0) {
+                        aa = 5;
+                    }
+                    var thisSrc1 = aImg[--aa].getAttribute("src");
+                    oDImg.setAttribute("src", thisSrc1);
+                }
+                for (var j = 0; j < aLi1.length; j++) {
+                    aLi1[j].classList.remove("u-l2");
+                }
+                this.classList.add("u-l2");
+            }
+        }
+
+
+    </script>
+</body>
+</html>
