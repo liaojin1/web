@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width:200px;
+            height:200px;
+        }
+        #box{
+            width:200px;
+            height:200px;
+            position: relative;
+            float: left;
+        }
+        #s-box{
+            width:50px;
+            height: 50px;
+            position: absolute;
+            /*display: none;*/
+            top:0;
+            left: 0;
+            background-color: rgba(255,255,255,0.3);
+        }
+        #show{
+            width:200px;
+            height:200px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+        }
+        #show img{
+            width: 800px;
+            height: 800px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="1.jpg" alt="" id="img-a">
+    <div id="s-box"></div>
+</div>
+<div id="show">
+    <img src="1.jpg" alt="">
+</div>
+
+<script>
+    var oSbox = document.getElementById("s-box");
+    var oBox = document.getElementById("box");
+    var oImg = document.getElementById("img-a");
+  var obImg = document.getElementById("show");
+  var oImg = obImg.getElementsByTagName("img")[0];
+
+
+    oBox.onmousemove = function (e) {
+        var thisX =e.clientX-25;
+        var thisY =  e.clientY-25;
+        var maxX = oBox.offsetWidth - oSbox.offsetWidth;
+        var maxY = oBox.offsetHeight - oSbox.offsetHeight;
+
+        if(thisX<0){
+            thisX =0;
+        }
+        if(thisY<0){
+            thisY=0;
+        }
+        if(thisX>maxX){
+            thisX = maxX;
+        }
+        if(thisY>maxY){
+            thisY = maxY;
+        }
+
+        oSbox.style.left =thisX +"px";
+        oSbox.style.top =thisY +"px";
+        oImg.style.left=-thisX*4 +"px"
+            oImg.style.top=-thisY*4 +"px";
+    }
+//    oBox.onmouseout = function () {
+//        oSbox.style.display = "none";
+//    }
+
+
+</script>
+
+</body>
+</html>

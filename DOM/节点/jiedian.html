@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script>-->
+<!--//        window.onload = function () {-->
+<!--//            var oBox = document.getElementById("obox");-->
+<!--//            console.log(oBox);-->
+<!--//        }-->
+
+    <!--</script>-->
+</head>
+<body>
+<div id="obox" class="aa">1</div>
+<a href="">22</a>
+<img src="" alt="">
+
+<div id="box">
+    <span class="cc">cc</span>
+    <!--zhushi-->
+    <!--zhushi-->
+    <!--<span class="bb">bb</span>-->
+</div>
+
+<script>
+
+    var fir = document.getElementById("box").childNodes.item(1);
+
+//    document.getElementsByName();//兼容熊问题，一般在表单提交到后台时使用
+//    console.log(document.querySelector("#obox"));//只能选择一个兼容性更差
+//    console.log(document.querySelectorAll(".aa"));//可以选择多个如.aa
+
+//    var span2 = document.getElementsByTagName("span")[0].nextSibling;//会把下一个节点如果是空格或者回车会直接返回
+//    var span22 = document.getElementsByTagName("span")[0].nextElementSibling;//正常返回
+//    console.log(span2);//返回回车键
+//    console.log(span2.nodeType);
+
+    var span1 = document.getElementsByTagName("span")[0];
+
+    function Next(span1) {
+        do{
+            span1 = span1.nextSibling;
+            console.log(span1);
+        } while(span1 && span1.nodeType!=1)
+        return span1;
+    }
+    console.log(Next(span1));
+
+//    //函数封装
+//    function getClassName(name) {
+//        if(document.getElementsByClassName("")){
+//           return document.getElementsByClassName(name);
+//        }//能力测试，如果可以使用就使用不能就写自己的
+//        var all = document.getElementsByTagName("*");
+//        console.log(all);
+//        var thisArr = [];
+//        for(var i = 0;i<all.length;i++){
+//    //            if(all[i].getAttribute("class")=="aa")
+//            if (all[i].className==name){
+//                thisArr.push(all[i]);
+//            }
+//        }return thisArr ;
+//    }
+//        var aClass = getClassName("aa");
+//        console.log(aClass);
+
+
+
+
+</script>
+</body>
+</html>

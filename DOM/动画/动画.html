@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="aa"></div>
+<div class="aa"></div>
+<div class="aa"></div>
+<script>
+    var aDiv = document.getElementsByClassName("aa");
+    var timer;
+    for(var i = 0;i<aDiv.length;i++){
+
+        aDiv[i].onmouseover = function () {
+            clearInterval(this.timer);
+             var a = this;
+            this.timer = setInterval(function () {
+                if(a.offsetWidth==500){
+                    clearInterval(a.timer);
+                }else{
+                    a.style.width = a.offsetWidth+10+"px";
+                }
+            },50);
+
+        }
+        aDiv[i].onmouseout = function () {
+            clearInterval(this.timer);
+            var a =this;
+            this.timer = setInterval(function () {
+                if(a.offsetWidth==100){
+                    console.log("1111")
+                    clearInterval(a.timer);
+                }else{
+                    a.style.width = a.offsetWidth-10+"px";
+                }
+            },50)
+        }
+    }
+
+</script>
+</body>
+</html>

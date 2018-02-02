@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        window.onload = function () {//window.onload必须等到页面内包括图片的所有元素加载完毕后才能执行
+            console.log(s("p").length);
+        }
+
+        $(document).ready(function () {//$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕
+            console.log(s("p").length);
+        })
+
+        $(function () {
+            console.log(s("p").length);//简写
+        })
+    </script>
+</head>
+<body>
+<div id="box">
+    <div class="aa" id="div1">
+        <p>1</p>
+        <p class="bb">2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+    </div>
+</div>
+<script>
+    console.log($(".bb").index());
+//    var oBox = document.getElementById("box");
+//    var $Box = $("#box");
+    $("p").click(function () {
+       console.log(this);
+       console.log($(this).index());
+       $(this).addClass("active");
+    });
+
+    $(".bb").click(function () {
+        $(this).removeClass("active");
+        $(this).css({"display":"none","color":"red"});
+        $(this).css({"display","none"});
+
+    })
+//    console.log(oBox);
+    //    console.log($Box);
+    //    console.log($Box.html());
+    //    console.log($(oBox).html());
+    //    console.log($Box.get(0));
+
+//    $("#div1~p").css();
+//    $("p:eq(1)");
+//    $("p").eq(1);
+//    $("p:even");//选择奇数
+//
+
+
+    var $aa = $(".aa");
+    $aa.html("1111");
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="a"></button>
+<span class="b">one</span>
+<span class="b">two</span>
+
+<!--dom-->
+<!--location.href,setInterval()-->
+<script>
+//bom的根是window dom的根是document window包含document
+//setInterval()//bom
+ document.getElementById("a");//返回对象唯一的
+ var aSpan = document.getElementsByClassName("b");//返回数组存在兼容性问题ie678都不能获取到
+ var aSpan1 = document.getElementsByTagName("span");//通过标签来获取兼容性较好
+
+ for(var i = 0;i<aSpan1.length;i++){
+     aSpan1[i].index = i;
+     aSpan1[i].onclick = function () {
+         alert(this.index);
+         setInterval(function () {//相当于window.setInterval(),并非是onclick.setInterval();
+             console.log(this);//输出bom的根为window调用的
+         },1000)
+     }
+ }
+// aSpan[0].onclick = function (){
+//
+// }
+
+ //定时函数
+
+// setInterval("console.log('1')",1000);//简单的语句使用双引号,外部使用双引号内部使用单引号，每间隔一秒执行一次
+// var i = 0;
+// var timer = setInterval(function () {
+//    console.log(++i);
+//    if(i==5){
+//        clearInterval(timer);//当i=5的时候停止当前正在执行的timer
+//    }
+// },1000);
+
+//    var person = {
+//     name:"xiaoming",
+//        age:"12",
+//        fun:function () {
+////            console.log("1");
+//            console.log(this.name);
+//        }
+//    }
+//    person.fun();//1.调用person中的方法//2.xiaoming
+</script>
+
+</body>
+</html>

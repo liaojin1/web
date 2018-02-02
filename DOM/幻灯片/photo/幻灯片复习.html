@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .box{
+            width:492px;
+            height: 180px;
+            margin: 30px auto;
+            border-radius: 10px;
+            background: #dddddd;
+            overflow: hidden;
+        /*//溢出内容隐藏*/
+            padding: 10px;
+            position: relative;
+        }
+        .radiu-btn li{
+            height: 20px;
+            width: 20px;
+            background-color: #F90;
+            opacity: 0.7; /*chrome（0-1）*/
+            filter: alpha(opacity=70); /*//ie(0-100)兼容性问题*/
+            float: left;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size:12px;
+            color: #ffffff;
+            margin: 0 5px;
+        }
+        .radiu-btn{
+            position: absolute;
+        }
+        .left-bt{
+            left:10px;
+            bottom: 10px;
+        }
+        .left-bt li{
+            line-height: 20px;
+        }
+        .right-bt{
+            right: 10px;
+            bottom: 10px;
+        }
+        .img-bar{
+            height: 170px;
+            overflow: hidden;
+        }
+        .radiu-btn .active{
+            background-color: #f60;
+        }
+        img{
+            width: 492px;
+            height: 170px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img-bar">
+            <ul id="img-ul">
+                <li><img src="6ef55907-bbed-49be-a2bb-be0821b5f7b8.png" alt=""></li>
+                <li><img src="302f2608-655a-489c-a0c5-a3b9172defd1.png" alt=""></li>
+                <li><img src="725a37e3-78b7-4298-8098-c40097bf179d.png" alt=""></li>
+                <li><img src="pms_1503909150.67293503!220x220.png" alt=""></li>
+                <li><img src="848def18-47d9-4ca0-8822-c2ac61b83779.png" alt=""></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="radiu-btn left-bt count">
+                <li this-type ="prev">&lt;</li>
+                <li this-type ="next">&gt;</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="radiu-btn right-bt count">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var aUl = document.getElementsByTagName("ul");
+        var aImg = aUl[0].getElementsByTagName("li");
+        var aLbt = aUl[1].getElementsByTagName("li");
+        var aRbt = aUl[2].getElementsByTagName("li");
+        var globalIndex = 0;
+        var dirctiion = 10;
+
+
+
+        var oUl = document.getElementById("img-ul");
+        //上述重复代码进行封装,函数尽量定义在上边
+        function changeImg(index) {//参数
+            if(index>globalIndex){
+                dirctiion = 10;
+            }else{
+                dirctiion = -10;
+            }
+
+//            if(index==5){
+//                index = 0;
+//                globalIndex = 0;//****
+//            }
+//            if(index==-1){
+//                index =4;
+//                globalIndex = 4;
+//            }
+
+            for(var j= 0 ;j<aRbt.length;j++){
+                aRbt[j].classList.remove("active");
+//                aImg[j].style.display="none";
+            }
+//            globalIndex++;
+            aRbt[globalIndex].classList.add("active");
+//            aImg[index].style.display="block";
+           var timer =  setInterval(function () {
+                if(oUl.offsetLeft == -index*490){
+                    clearInterval(timer);
+                    globalIndex = this.index;
+                    if(index==5){
+                        oUl.style.left = 0;
+                        globalIndex = 0;
+                    }
+                }else{
+                    oUl.style.left = -oUl.offsetLeft - dirctiion +'px';
+                }
+
+            },10)
+//            oUl.style.left = -index*492+'px';
+        }
+
+
+        //right-btn
+        for(var i = 0;i<aRbt.length;i++){
+            aRbt[i].index = i;
+            aRbt[i].onmouseover = function () {
+//                globalIndex = 0;
+                changeImg(this.index);
+//                globalIndex = this.index;
+
+//                for(var j= 0 ;j<aRbt.length;j++){
+//                    aRbt[j].classList.remove("active");
+//                    aImg[j].style.display="none";
+//                }
+//                this.classList.add("active");
+//                aImg[this.index].style.display="block";
+//                globalIndex = this.index;//获取当前鼠标所放在的li中的
+            }
+        }
+        //left-btn
+        for(var j=0;j<aLbt.length;j++){
+            aLbt[j].onclick = function () {
+                //判断点击左还是右
+                var  thisType = this.getAttribute("this-type");
+//                console.log(thisType);
+                if(thisType=="next"){
+                    changeImg(++globalIndex);
+                }else{
+                    changeImg(--globalIndex);
+                }
+//                changeImg(globalIndex++);
+//                for(var j= 0 ;j<aRbt.length;j++){
+//                    aRbt[j].classList.remove("active");
+//                    aImg[j].style.display="none";
+//                }
+//                globalIndex++;
+//                aRbt[globalIndex].classList.add("active");
+//                aImg[globalIndex].style.display="block";
+            }
+        }
+
+        var timer = setInterval(function () {
+            if(run){
+                changeImg(++globalIndex);
+            }
+
+        },1000);
+        var oBox = document.getElementsByClassName("box")[0];//ie678不兼容
+        var run = true;
+        oBox.onmouseover = function () {
+            run = false;
+        }
+        oBox.onmouseout = function () {
+            run = true;
+        }
+    </script>
+</body>
+</html>

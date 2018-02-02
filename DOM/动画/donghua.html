@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            margin-top: 10px;
+        }
+        .father{
+            position: relative;
+            top:100px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="father">
+    <div id="box"></div>
+</div>
+
+<script>
+    var oDiv = document.getElementById("box");
+    oDiv.offsetWidth//获取当前div宽度
+    oDiv.offsetTop//默认margin-top只有他的父级定位的情况下才依据他的父亲判断margin-top
+</script>
+</body>
+</html>

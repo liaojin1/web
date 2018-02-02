@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width:400px;
+            height:400px;
+            background-color: yellow;
+        }
+        .div2{
+            width:300px;
+            height:300px;
+            background-color: red;
+        }
+        .div3{
+            width:200px;
+            height:200px;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="div3"></div>
+    </div>
+</div>
+
+<script>
+    var oDiv1 = document.getElementsByClassName("div1")[0];
+    var oDiv2 = document.getElementsByClassName("div2")[0];
+    var oDiv3 = document.getElementsByClassName("div3")[0];
+//    oDiv1.onclick = function (e) {
+//        console.log(e);
+//        console.log("div1");
+//    }
+//    oDiv2.onclick = function () {
+//        console.log("div2");
+//    }
+//    oDiv3.onclick = function (e) {
+//        console.log("div3");
+//        e.stopPropagation();//阻止事件冒泡
+//    }
+//    oDiv3.onclick = function (e) {
+//        console.log("div3-1");
+//        e.stopPropagation();//阻止事件冒泡
+//    }
+
+//    oDiv3.addEventListener("click",function () {
+//        console.log("div3");
+//    })
+
+//    function fn1() {
+//        console.log("div3");
+//    }
+//    oDiv3.addEventListener("click",fn1);
+
+    //不会覆盖，两个都会触发因为是两个不同的函数所以都会触发
+//    oDiv3.addEventListener("click",function () {
+//            console.log("div3");
+//    })
+//    oDiv3.addEventListener("click",function () {
+//            console.log("div3-1");
+//        })
+
+    //fn2为一个函数所以只触发一次,（ie8一样）
+//    function fn2() {
+//        console.log("div3");
+//    }
+//    oDiv3.addEventListener("click",fn2);
+//        oDiv3.addEventListener("click",fn2);
+//
+
+//    oDiv3.removeEventListener("click",function () {
+//
+//    })//所有匿名函数就算内部内容一样也是不同的函数，不是一个函数。
+
+    //false为事件冒泡，true为事件捕获，先捕获，后冒泡
+//    oDiv3.addEventListener("click",function () {
+//                console.log("div3");
+//        },false)
+//     oDiv2.addEventListener("click",function () {
+//                console.log("div2");
+//        },true)
+//     oDiv1.addEventListener("click",function () {
+//                console.log("div1");
+//        },true)
+
+//remove需要每个参数都相等，才能移除掉
+//    function fn2() {
+//            console.log("div3");
+//        }
+//        oDiv3.addEventListener("click",fn2,false);
+//            oDiv3.removeEventListener("click",fn2,true);
+
+
+    //兼容ie678,还是321，没有捕获这个概念，只有冒泡事件
+//    oDiv3.attachEvent("onclick",function () {
+//        console.log("div3");
+//    },true);
+//    oDiv2.attachEvent("onclick",function () {
+//        console.log("div2");
+//    },true);
+//    oDiv1.attachEvent("onclick",function () {
+//        console.log("div1");
+//    },true);
+
+
+//    oDiv3.attachEvent("onclick",function () {
+//            console.log("div3");
+//        },true);
+//        oDiv3.detachEvent("onclick",function () {
+//            console.log("div3");
+//        },true);
+
+
+//    oDiv3 = function () {
+//        console.log("div3");
+//    }
+
+    function fn1() {
+        console.log(this);
+    }
+    addEvent(oDiv3,"click",fn1);
+//封装
+    function addEvent(elem,eve,fun) {
+        if(elem.addEventListener){//能力测试
+            elem.addEventListener(eve,fun);
+        }else if(elem.attachEvent){
+            elem.attachEvent("on"+eve,fun);
+        }else{
+            elem["on"+eve] = fun;
+        }
+    }
+//
+//    removeEvent(oDiv3,"click",fn1);
+    function removeEvent(elem,eve,fun) {
+        if(false){
+            elem.removeEventListener(eve,fun);
+        }else if(elem.detachEvent){
+            elem[fun] = function () {
+                fun.call(elem);
+            }
+            elem.detachEvent("on"+eve,aa);
+        }else{
+            elem["on"+eve] = null;
+        }
+    }
+
+
+//动态添加时候
+    oUl.onclick = function () {
+        var This = e.target;
+        console.log(This.innerHTML);
+    }
+</script>
+</body>
+</html>

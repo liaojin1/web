@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+
+</div>
+<script>
+    var oBox = document.getElementById("box");
+//    oBox.innerHTML = '<div class="a">111</div>';//注意内部单双引号 推荐使用外部单引号内部双引号 推荐使用
+
+    var oDiv = document.createElement("div");
+    console.log(oDiv);
+    oBox.innerHTML = oDiv;//错的，innerHTML接收字符串
+    oDiv.innerText = "111";//div中增加内容
+    oBox.appendChild(oDiv);//对的 添加一个div
+    oBox.removeChild(oDiv);//移除div
+
+    oBox.insertBefore(oDiv);
+
+    oBox.hasChildNodes();//判断是否有子元素
+
+    oBox.replaceChild(oDiv,oUL);//oDiv替换oUL
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        #box{
+            margin:0 auto;
+            width: 200px;
+            margin-top: 50px;
+        }
+        ul li{
+            text-align: center;
+            border:1px solid #dddddd;
+        }
+        .aa{
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>
+            <div class="aa">标题</div>
+            <ul class="active">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <div class="aa">标题</div>
+            <ul class="active">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var aUl = document.getElementsByClassName("active");
+    var aDiv = document.getElementsByClassName("aa");
+
+
+    //
+    function NextS(a) {
+        do{
+            a=a.nextSibling;
+        }while(a&&a.nodeType!=1)
+        return a;
+    }
+
+    for(var i=0;i<aDiv.length;i++){
+        aDiv[i].index = i;
+        aDiv[i].isOpen = true;
+        aDiv[i].onclick = function () {
+            var nextS = NextS(aDiv[this.index]);
+            if(this.isOpen){
+                nextS.style.display="none";
+                this.isOpen = false;
+            }else{
+                nextS.style.display="block";
+                this.isOpen = true;
+            }
+
+        }
+    }
+</script>
+</body>
+</html>

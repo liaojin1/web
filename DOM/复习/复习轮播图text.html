@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .clearfix:after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .outer{
+            width: 450px;
+            border:1px solid #dddddd;
+            margin:0 auto;
+        }
+        .header{
+            background-color: #000000;
+            color: white;
+            border: 1px solid #000000;
+        }
+        .header li{
+            float: left;
+            padding: 0 20px;
+        }
+        .header .active{
+            background-color: #dddddd;
+            color: #000000;
+        }
+        .bodya div{
+            display: none;
+        }
+        .bodya .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="header clearfix">
+        <ul class="clearfix" id="header-ul">
+            <li class="active">第一课</li>
+            <li>第二课</li>
+            <li>第三课</li>
+        </ul>
+    </div>
+    <div class="bodya" id="body-a">
+        <div class="active" style="display: block">第一课内容</div>
+        <div>第二课内容</div>
+        <div>第三课内容</div>
+    </div>
+</div>
+<script>
+    var aLi = document.getElementById("header-ul").getElementsByTagName("li");
+    var aDiv = document.getElementById("body-a").getElementsByTagName("div");
+
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            for(var j = 0;j<aLi.length;j++){
+                aLi[j].classList.remove("active");
+                aDiv[j].style.display = "none";
+            }
+            this.classList.add("active");
+            aDiv[this.index].style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>

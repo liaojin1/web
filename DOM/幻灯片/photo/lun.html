@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .clearfix:after{
+            content: '';
+            clear: both;
+
+        }
+        .content{
+            width:700px;
+            height:300px;
+            border:1px solid #dddddd;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .img li{
+            position: absolute;
+            top:0;
+            left: 0;
+            /*display: none;*/
+            opacity: 0;//透明度有兼容性问题
+        }
+        .img img{
+            width: 700px;
+            height: 300px;
+        }
+        .left-bt{
+            position: absolute;
+            left:10px;
+            bottom: 10px;
+        }
+        .left-bt li{
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            float: left;
+            margin-left: 10px;
+            background-color: #ff6700;
+        }
+        .right-bt{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .right-bt li{
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            float: left;
+            margin-left: 10px;
+            background-color: #ff6700;
+        }
+        #left-bt li:hover{
+            cursor: pointer;
+            background-color: yellow;
+        }
+        #num-bar li :hover{
+            cursor: pointer;
+            background-color: yellow;
+        }
+        #num-bar .active{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="content" id="box">
+    <div class="img">
+        <ul id="img-list">
+            <li style="display: block"><img src="6ef55907-bbed-49be-a2bb-be0821b5f7b8.png" alt=""></li>
+            <li style="opacity: 1"><img src="302f2608-655a-489c-a0c5-a3b9172defd1.png" alt=""></li>
+            <li><img src="pms_1503909150.67293503!220x220.png" alt=""></li>
+            <li><img src="725a37e3-78b7-4298-8098-c40097bf179d.png" alt=""></li>
+            <li><img src="848def18-47d9-4ca0-8822-c2ac61b83779.png" alt=""></li>
+        </ul>
+    </div>
+
+    <div class="left-bt">
+        <ul class="clearfix" id="left-bt">
+            <li this-type = "p">&lt;</li>
+            <li this-type = "n">&gt;</li>
+        </ul>
+    </div>
+    <div class="right-bt">
+        <ul id="num-bar">
+            <li class="active">1</li>
+            <li class="">2</li>
+            <li class="">3</li>
+            <li class="">4</li>
+            <li class="">5</li>
+        </ul>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

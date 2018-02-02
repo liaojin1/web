@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        .box{
+            border: 1px solid #dddddd;
+            width: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .header{
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+        }
+        .header li{
+            /*display: inline-block;块级转行级*/
+            float: left;
+            /*!*脱离文档流导致高度塌陷*!*/
+            /*position: absolute;*/
+            /*//绝对定位根据相对定位定位,根据已经定位的父级进行定位如果没有相对html定位*!*!*/
+            /*top:0;*/
+            /*left: 0;*/
+            /*z-index: 10;!*默认为0*!*/
+
+            width: 100px;
+            text-align: center;
+            color: white;
+        }
+        .header .active{
+            background-color: #dddddd;
+            color: #000000;
+        }
+        .bottom{ /*//覆盖上边*/
+            /*position: absolute;*/
+            /*top:0;*/
+            /*left: 0;*/
+        }
+        .bottom div{
+            display: none;
+        }
+        .bottom .active{
+            display: block;
+        }
+        .aa{
+            color: #00aaee !important;
+            /*内联样式权重值高*/
+            /*最高权重谨慎使用*/
+        }
+        /*根据解析html顺序让style进行覆盖*/
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="header" id="nav">
+        <ul class="clearfix">
+            <li class="active">第一课</li>
+            <li class="aa">第二课</li>
+            <li>第三课</li>
+        </ul>
+    </div>
+    <div class="bottom" id="content">
+        <div class="active" style="display: block">第一节课的内容</div>
+        <div>第二节课的内容</div>
+        <div>第三节课的内容</div>
+    </div>
+</div>
+<div id="test" style="color: red">hello</div>
+<script>
+    var aLi = document.getElementById("nav").getElementsByTagName("li");
+    var aDiv = document.getElementById("content").getElementsByTagName("div");
+    var oDiv = document.getElementById("test");
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].index = i;//控制谁给谁加index
+        aLi[i].onmouseover = function () {
+            for(var j = 0 ;j<aLi.length;j++){
+                aLi[j].classList.remove("active");
+//                aDiv[j].classList.remove("active");
+                aDiv[j].style.display = "none";
+            }
+            this.classList.add("active");
+//            aDiv[this.index].classList.add("active");
+            aDiv[this.index].style.display = "block";
+
+            if(this.index==2){
+                oDiv.style.cssText = "display:block;color:blue";
+            }
+        }
+    }
+</script>
+</body>
+</html>

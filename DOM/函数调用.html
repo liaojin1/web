@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function aa(index,ddd) {
+        console.log(this);
+        console.log(index,ddd);//11
+    }
+//    aa();//window
+
+    var person ={
+        name:"xiaohong",
+        age:11,
+    }
+    aa.call(person,"11","222");//重定义this,需要一个或者多个形参，将call内的参数传递给ddd
+    aa.apply(person,["11","222"])//只需要二个形参，第二个参数通过数组传递给ddd
+</script>
+</body>
+</html>
