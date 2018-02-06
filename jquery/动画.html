@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<button id="show">show</button>
+<button id="hide">hide</button>
+<button id="toggle">toggle</button>
+<button id="fadein">fadein</button>
+<button id="fadeout">fadeout</button>
+<button id="fadetoggle">fadetoggle</button>
+<button id="animate">animate</button>
+<button id="animated">animated</button>
+
+
+<div id="box"></div>
+
+<script>
+    $("#show").click(function () {
+        $("#box").show("slow");
+    })
+    $("#hide").click(function () {
+        $("#box").hide("fast");
+    })
+    $("#toggle").click(function () {
+        $("#box").toggle(1000);//参数可以是数值或者空或者其他
+    })
+    $("#fadeout").click(function () {
+        $("#box").fadeOut();
+    })
+    $("#fadein").click(function () {
+
+        $("#box").fadeIn();
+    })
+    $("#animate").click(function () {
+        $("#box").animate({//当前animate执行完毕之后执行下一个
+            opacity:0.25,
+            height:'500',
+        },1000,'easing',function () {//easing(含有一个库在官网上下载)两个参数inner和swing
+            console.log("1");//callback当动画效果执行结束之后执行这个函数
+        });
+    })
+    $("#animated").click(function () {//只有在动画中点击才好使
+        $("#box:animated").css("background-color","blue");
+    })
+    //.stop()stop(true)stop(false，true)stop(true，true)停止当前的animate
+</script>
+</body>
+</html>

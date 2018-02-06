@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="box1" style="width: 300px;height: 800px;overflow: scroll">
+    <div id="box" style="height: 1000px;background-color: blue;width: 200px;"></div>
+    <div style="background-color: yellow;height: 1000px;width: 200px;"></div>
+
+</div>
+<button id="go-top">返回顶部</button>
+
+<script>
+    $("#go-top").click(function () {
+        $("#box1").animate({
+            scrollTop:0,//返回顶部一秒返回
+        },1000)
+    })
+    $("#box1").scroll(function () {
+        console.log($(this).scrollTop());
+            if($(this).scrollTop()>=1000){
+                alert("滚动");
+            }
+        })
+//
+</script>
+</body>
+</html>

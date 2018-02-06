@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div>
+    <button id="b">放大</button>
+    <button id="s">缩小</button>
+</div>
+
+<textarea name="" id="" cols="" rows="">慕斯蛋糕福克斯的技术都会发生广发卡俩与尽快核实对方就爱上大家看看开始覅偶出那么</textarea>
+<script>
+    $("#b").click(function () {
+        var h;
+        $("textarea").animate({
+            height:'+=50',
+        },1000)
+    })
+    $("#s").click(function () {
+        $("textarea").animate({
+            height:"-=50"
+        },1000)
+    })
+</script>
+</body>
+</html>

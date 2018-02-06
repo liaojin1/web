@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div>
+    <select multiple="multiple" name="" id="le" style="width: 150px;height: 250px">
+        <option value="">选项一</option>
+        <option value="">选项二</option>
+        <option value="">选项三</option>
+        <option value="">选项四</option>
+        <option value="">选项五</option>
+        <option value="">选项六</option>
+    </select>
+
+    <select multiple="multiple" name="" id="ri" style="width: 150px;height: 250px;">
+        <option value="">选项七</option>
+    </select>
+</div>
+
+<div style="float: left;width: 158px;">
+    <button id="a">选中添加到右边&gt;&gt;&gt;</button>
+    <button id="b">全部添加到右边&gt;&gt;&gt;</button>
+</div>
+<div style="float: left;width: 158px;">
+    <button id="c">&lt;&lt;&lt;选中添加到左边</button>
+    <button id="d">&lt;&lt;&lt;全部添加到左边</button>
+</div>
+
+<script>
+    $(function () {
+        //操作对象没有动态绑定
+        $("#a").click(function () {
+            $("option:selected").appendTo("#ri");
+        });
+        $("#b").click(function () {
+            $("#le option").appendTo("#ri");
+        });
+        $("#c").click(function () {
+            $("option:selected").appendTo("#le");
+        });
+        $("#d").click(function () {
+            $("#ri option").appendTo("#le");
+        });
+
+        //给对象绑定事件
+        $("#ri").on("dblclick",(function () {
+            $("option:selected").appendTo("#le");//动态绑定給父级，使父级监听发生的事情
+        }));
+        $("#le").on("dblclick",(function () {
+            $("option:selected").appendTo("#ri");
+        }));
+    })
+
+</script>
+</body>
+</html>

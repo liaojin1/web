@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../jquery/js/jquery-3.3.1.js"></script>
     <style>
         *{
             margin:0;
@@ -23,6 +24,9 @@
         .aa{
             background-color: #000000;
             color: white;
+        }
+        .active{
+            display: none;
         }
     </style>
 </head>
@@ -49,33 +53,38 @@
 </div>
 
 <script>
-    var aUl = document.getElementsByClassName("active");
-    var aDiv = document.getElementsByClassName("aa");
+    $(".aa").click(function () {
+        console.log($(this).index())//相对于父级为0
+        $("div:eq("+$(this).index()+")+ul").toggleClass("active");
+    })
 
-
-    //
-    function NextS(a) {
-        do{
-            a=a.nextSibling;
-        }while(a&&a.nodeType!=1)
-        return a;
-    }
-
-    for(var i=0;i<aDiv.length;i++){
-        aDiv[i].index = i;
-        aDiv[i].isOpen = true;
-        aDiv[i].onclick = function () {
-            var nextS = NextS(aDiv[this.index]);
-            if(this.isOpen){
-                nextS.style.display="none";
-                this.isOpen = false;
-            }else{
-                nextS.style.display="block";
-                this.isOpen = true;
-            }
-
-        }
-    }
+//    var aUl = document.getElementsByClassName("active");
+//    var aDiv = document.getElementsByClassName("aa");
+//
+//
+//    //
+//    function NextS(a) {
+//        do{
+//            a=a.nextSibling;
+//        }while(a&&a.nodeType!=1)
+//        return a;
+//    }
+//
+//    for(var i=0;i<aDiv.length;i++){
+//        aDiv[i].index = i;
+//        aDiv[i].isOpen = true;
+//        aDiv[i].onclick = function () {
+//            var nextS = NextS(aDiv[this.index]);
+//            if(this.isOpen){
+//                nextS.style.display="none";
+//                this.isOpen = false;
+//            }else{
+//                nextS.style.display="block";
+//                this.isOpen = true;
+//            }
+//
+//        }
+//    }
 </script>
 </body>
 </html>

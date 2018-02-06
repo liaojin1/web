@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="name" id="inp">
+<button id="btn">按钮</button>
+<script>
+    var oInp = document.getElementById("inp");
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        console.log(oInp.value);
+        console.log(oInp.defaultValue);//获取默认的值
+
+    }
+    //获取焦点失去焦点时触发的事件
+    $("#inp").focus(function () {
+        console.log("1");
+    })
+    $("#inp").blur(function () {
+        console.log("2");
+    })
+
+    //缩写
+    $("#inp").focus(function () {
+        console.log("1");
+    }).blur(function () {
+        console.log("2");
+    })
+</script>
+</body>
+</html>

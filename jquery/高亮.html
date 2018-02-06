@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<input type="text">
+<!--<button>点击</button>-->
+<p>iphonex</p>
+<p>iphone</p>
+<p>iphone8</p>
+<p>iphone6</p>
+<p>photo</p>
+<script>
+
+
+    $("input").keyup(function () {
+        $("p").css("background-color","white");
+            if($(this).val()!=""){
+                $("p:contains("+$(this).val()+")").css("background-color","red");
+            }
+    });
+
+//    $("button").click(function () {
+//        var $input = $("input").val();
+//        $("p:contains("+$input+")").css({"color":"red"});
+//    })
+
+</script>
+</body>
+</html>

@@ -33,15 +33,49 @@
                 $div_input.prop("checked",false);
                 break;
             case 2:
-                for(var i = 0;i<$div_input.length;i++){
-                    if($div_input.eq(i).prop("checked")){
-                        $div_input.eq(i).prop("checked",false);
-                    }else{
-                        $div_input.eq(i).prop("checked",true);
-                    }
-                }
+                var a = document.getElementById("input-div").getElementsByTagName("input");
+                a.forEach(function (value,index) {
+
+                })
+//                $div_input.each(function (index,elem) {//jquery
+//                if($(elem).prop("checked")){
+//                    $(elem).prop("checked",false);
+//                }else{
+//                    $(elem).prop("checked",true);
+//                }
+//            })
+
+//                $div_input.each(function (index,elem) {//js
+//                    elem.checked = !elem.checked;
+//                })
+//                for(var i = 0;i<$div_input.length;i++){
+//                    if($div_input.eq(i).prop("checked")){
+//                        $div_input.eq(i).prop("checked",false);
+//                    }else{
+////                        $div_input.eq(i).prop("checked",true);
+////                    }
+////                }
         }
     })
+
+
+
+//    var person = {
+//        name:"xiaohong",
+//        age:"18",
+//        school:"ligong",
+//    }
+//    person.forEach(function(index,elem){
+//        console.log(index);
+//        console.log(elem);
+//    })//js
+
+//    $(person).each(function (index,elem) {//jquery语法
+//        console.log(index);
+//        console.log(elem);
+//    })
+
+//    console.log($("#aa").get(0));//jquery转为js原生
 </script>
 </body>
 </html>

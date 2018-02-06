@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <style>
+        input,textarea{
+            outline: none;
+        }
+        .active{
+            border:1px solid #f00;
+            background-color:#fcc;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <div><label for="username">名称：</label><input type="text" id="username" value="名称"></div>
+        <div><label for="pass">密码：</label><input type="password" id="pass" value="12"></div>
+        <div><label for="information">详细信息：</label><textarea name="" id="information" cols="" rows="" >详细信息</textarea></div>
+    </fieldset>
+</form>
+<script>
+    $(function () {
+        $(":input").focus(function () {//input和：input//:input获取form表单内可以输入的input标签包括textarea
+            $(this).addClass("active");
+            if(this.value==this.defaultValue){
+                this.value = "";//$(this).val();jquery
+            }
+        }).blur(function () {
+            $(this).removeClass("active");
+            if(this.value==""){
+                $(this).val(this.defaultValue);
+            }
+        })
+    })
+
+
+//    var aInput = $("input");
+//    for(var i= 0;i<aInput.length;i++){
+//        aInput[$(this).index()].focus(function () {
+//            aInput[$(this).index()].css({
+//                border:'1px solid #f00',
+//                backgroud:"#fcc",
+//            })
+//        }).blur(function () {
+//            aInput[$(this).index()].css({
+//                border:'1px solid #ddd',
+//
+//            })
+//        })
+//    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+p{
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+        #outer .outer-li{
+            width: 200px;
+            text-align: center;
+            position: relative;
+        }
+        .inner{
+            display: none;
+            border: 1px solid lightgreen;
+            position: absolute;
+            left: 199px;
+            top: -1px;
+            width: 200px;
+        }
+        #outer .outer-li p:hover{
+            border-color:lightgreen;
+            cursor: pointer;
+            border-right-color: white;
+            position: relative;
+            z-index: 100;
+            background-color: #fff;
+        }
+        .active{
+            border-bottom-color:lightgreen ;
+            border-top: 1px solid lightgreen;
+            display: block;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="outer">
+    <li class="outer-li">
+        <p>菜单一</p>
+        <ul class="inner">
+            <li>菜单一内容一</li>
+            <li>菜单一内容二</li>
+            <li>菜单一内容三</li>
+            <li>菜单一内容四</li>
+        </ul>
+    </li>
+    <li class="outer-li">
+        <p>菜单二</p>
+        <ul class="inner">
+            <li>菜单二内容一</li>
+            <li>菜单二内容二</li>
+            <li>菜单二内容三</li>
+            <li>菜单二内容四</li>
+        </ul>
+    </li>
+    <li class="outer-li">
+        <p>菜单三</p>
+        <ul class="inner">
+            <li>菜单三内容一</li>
+            <li>菜单三内容二</li>
+            <li>菜单三内容三</li>
+        </ul>
+    </li>
+    <li class="outer-li">
+        <p>菜单四</p>
+        <ul class="inner">
+            <li>菜单四内容一</li>
+            <li>菜单四内容二</li>
+            <li>菜单四内容三</li>
+            <li>菜单四内容四</li>
+            <li>菜单四内容五</li>
+        </ul>
+    </li>
+    <li class="outer-li">
+        <p>菜单五</p>
+        <ul class="inner">
+            <li>菜单五内容一</li>
+            <li>菜单五内容二</li>
+        </ul>
+    </li>
+    <li class="outer-li">
+        <p>菜单六</p>
+        <ul class="inner">
+            <li>菜单六内容一</li>
+            <li>菜单六内容二</li>
+            <li>菜单六内容三</li>
+            <li>菜单六内容四</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("p").mouseover(function () {
+        $(".inner").removeClass("active");
+        $(this).siblings().addClass("active");
+    })
+    $("p").mouseout(function (){
+        $(".inner").removeClass("active");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>list 1</li>
+    <li>list 2</li>
+    <li>list 3</li>
+    <li>list 4</li>
+</ul>
+<div>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <p></p>
+    <div></div>
+</div>
+<script>
+    $("li").filter(".aa").css("color","red");
+    $("li").filter(":odd").css("color","red");
+    $("li").has("ul").css("color","red");//li下有ul就选中，如果没有就不选中
+    console.log($("p").next());//p紧挨着的返回div
+    console.log($("p").next().is("p"));//false
+    $("li").slice(1).css("color","red");
+
+</script>
+</body>
+</html>

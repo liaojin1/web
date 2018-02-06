@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        .clearfix:after{
+            clear: both;
+            content: "";
+            display: block;
+        }
+        ul{
+            list-style: none;
+        }
+        .content{
+            margin: 0 auto;
+            width:700px;
+            padding-bottom:60px ;
+        }
+        #date1{
+            background-color: #000000;
+            text-align: center;
+        }
+        #bodya{
+            margin-top: 50px;
+        }
+        .control{
+            width: 25px;
+            height: 20px;
+            float: left;
+            margin-left: 20px;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+        .header-ul-li li{
+            float: left;
+            color: white;
+        }
+        .header-ul-li ul{
+            line-height: 50px;
+        }
+        #bodya ul li{
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #dddddd;
+            margin-right: 25px;
+            margin-bottom: 20px;
+
+        }
+        #total{
+            position: fixed;
+            background-color: goldenrod;
+            height: 40px;
+            width: 700px;
+            bottom: 0;
+            margin: 0 auto;
+        }
+        .outer{
+            width:80px;
+            float: left;
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div id="header">
+        <div style="background-color: white;height: 50px;" id="timer"></div>
+        <div class="header-ul-li">
+            <ul style="background-color: #000000;height: 50px;">
+                <li id="a" class="control" style="background-color: white"></li>
+                <li>可选</li>
+                <li id="b" class="control" style="background-color: red"></li>
+                <li>已选</li>
+                <li id="c" class="control" style="background-color: blue"></li>
+                <li>已售</li>
+            </ul>
+        </div>
+        <div id="date1"><img src="7~%7B3VD$BQ%5D%60G$%606%25%60TD%60MM2.png" alt=""></div>
+    </div>
+    <div class="clearfix" id="bodya" style="margin-top: 50px;">
+        <ul class="bodya-ul clearfix">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li style="margin-right: 220px"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="foot" class="clearfix">
+        <div style="color: #ffffff;">您已选择了：            最多可以选择五张票
+            <div class="foot"></div>
+
+        </div>
+    </div>
+    <div id="total" >价格：
+        <span class="money" id="js-money" style="background-color: goldenrod; color: red;font-size: 30px;">¥0</span>
+        <span class="sum" id="js-sum" style="background-color: goldenrod;">¥99*0</span>
+    </div>
+</div>
+
+<script>
+    function changeSelect(arr) {
+        var thisHtml = "";
+        for(var i=0;i<arr.length;i++){
+            thisHtml += "<div class='outer'>"+arr[i]+"</div>";
+        }
+        $(".foot").html(thisHtml);
+        $("#js-money").html("￥"+arr.length*99);
+        $("#js-sum").html("￥99*"+arr.length);
+    }
+
+    var tmp = $(".bodya-ul li").clone();
+    for(var i=0;i<7;i++){
+        $(".bodya-ul").append(tmp.clone());
+    }
+    for(var a=0;a<20;a++){
+        var ran = Math.floor(Math.random()*79);
+        $(".bodya-ul li").eq(ran).css({"background-color":"blue"});
+    }
+
+    var Arr = [];
+    function Indexa(This) {
+        var col;
+        var row;
+        row = Math.floor($(This).index()/10)+1;
+        col = ($(This).index()%10)+1;
+        return row+"排"+col+"坐";
+    }
+    function Adda(This) {
+        Arr.push(Indexa(This));
+        console.log(Arr);
+    }
+   function Removea(arr) {
+       for(var i = 0;i<Arr.length;i++){
+           if(Arr[i]==arr){
+               Arr.splice(i,1);
+           }
+       }
+   }
+
+    var sum=1;
+    $(".bodya-ul li").click(function () {//票数最多五张
+        if(sum<=5){
+            if($(this).css("background-color")=="rgb(221, 221, 221)"){//鼠标点击变成红色
+                $(this).css({"background-color":"red"});
+                Indexa(this);
+                Adda(this);
+                changeSelect(Arr);
+                sum++;
+            }else if($(this).css("background-color")=="rgb(255, 0, 0)"){//鼠标点击红色则变成白色
+                $(this).css({"background-color":"#dddddd"});
+                Removea(Indexa(this));
+                changeSelect(Arr);
+                sum--;
+            }
+        }else{
+            if($(this).css("background-color")=="rgb(221, 221, 221)"){
+            }else if($(this).css("background-color")=="rgb(255, 0, 0)"){
+                $(this).css({"background-color":"#dddddd"});
+                Removea(Indexa(this));
+                changeSelect(Arr);
+                sum--;
+            }
+        }
+    })
+
+//        $(".bodya-ul li").click(function () {
+//            var col;
+//            var row;
+//            row = Math.floor($(this).index()/10)+1;
+//            col = ($(this).index()%10)+1;
+//            console.log(row+"排"+col+"坐");
+//            console.log($(this).index());
+//        })
+
+//    var row=0;
+    //    for(var i = 0;i<=$(".bodya-ul li").length;i++){
+    //        if(i%10==0){
+    //            row++;
+    //        }
+    //        $(".bodya-ul li").eq(i).attr("sign",row+"排"+(i%10+1)+"坐");
+    //
+    //    }
+</script>
+</body>
+</html>

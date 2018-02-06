@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<p>你爱好的运动</p>
+
+    <input type="checkbox" id="y">全选/全不选
+    <input type="checkbox" name="choice" value="足球">足球
+    <input type="checkbox" name="choice" value="篮球">篮球
+    <input type="checkbox" name="choice" value="排球">排球
+    <input type="checkbox" name="choice" value="羽毛球">羽毛球
+<button id="submit">提交</button>
+<script>
+    $("#y").click(function () {
+        if($("#y").prop("checked")){
+            $('input[name="choice"]').prop("checked",true);
+        }else{
+            $('input[name="choice"]').prop("checked",false);
+        }
+
+    })
+
+    $('input[name="choice"]').click(function () {
+       if($('input[name="choice"]:checked').length==4){
+           $("#y").prop("checked",true);
+       }else{
+           $("#y").prop("checked",false);
+       }
+    })
+
+    $("#submit").click(function () {
+        var sum="";
+        $('input[name="choice"]:checked').each(function () {
+            if($(this).prop("checked")){
+                sum += $(this).val();
+            }
+        })
+        alert(sum);
+    })
+
+</script>
+
+</body>
+</html>
