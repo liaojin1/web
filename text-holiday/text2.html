@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.JavaScript脚本在正式执行前会对全局进行一次预处理，//
+    // 将所有var声明的变量进行一次赋值，赋值为undefined，
+    // 同时将函数进行声明，写入Lexical Environment（词法环境）
+    // 而没有用var声明的变量不会在预处理中处理，
+    // 只有在执行时会定义为全局变量并进行赋值
+//    console.log(b);//function b() {console.log("b");}
+//    function b() {
+//        console.log("b");
+//    }
+    //2.注意函数定义方式：function xx(){} 为正常函数声明，
+    // 而var xx=function(){}为函数表达式形式
+    // 看作先定义一个变量再对其进行赋值，
+    // 所以在预处理结束后他的值应为undefined
+//    console.log(a);//function a() {console.log("a");}
+//    console.log(aa);//undefined
+//    function a() {
+//        console.log("a");
+//    }
+//    var aa = function () {
+//        console.log("aa");
+//    }
+    //3.如果出现定义出现重名时，JavaScript的预处理规则：
+    //处理函数声明有冲突，会覆盖
+    //处理变量声明时有冲突，会忽略
+//    console.log(a);//f a(){console.log("a");}
+//    var a = 1;
+//    function a() {
+//        console.log("a");
+//    }
+//    console.log(b);//f b(){console.log("b");}
+//    function b() {
+//        console.log("b");
+//    }
+//    var b = 1;
+
+    console.log(g);//Output undefined
+    var g = function(){
+        console.log("g");
+    }
+    console.log(g);//Output ƒ g(){console.log("g");}
+</script>
+</body>
+</html>

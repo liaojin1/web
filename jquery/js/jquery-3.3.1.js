@@ -1575,7 +1575,7 @@ Sizzle.uniqueSort = function( results ) {
 };
 
 /**
- * Utility function for retrieving the text-h value of an array of DOM nodes
+ * Utility function for retrieving the text-holiday value of an array of DOM nodes
  * @param {Array|Element} elem
  */
 getText = Sizzle.getText = function( elem ) {
@@ -2027,7 +2027,7 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is negated by element (1) or content nodes (text-h: 3; cdata: 4; entity ref: 5),
+			// :empty is negated by element (1) or content nodes (text-holiday: 3; cdata: 4; entity ref: 5),
 			//   but not by others (comment: 8; processing instruction: 7; etc.)
 			// nodeType < 6 works because attributes (2) do not appear as children
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
@@ -2062,7 +2062,7 @@ Expr = Sizzle.selectors = {
 				elem.type === "text" &&
 
 				// Support: IE<8
-				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text-h"
+				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text-holiday"
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
 		},
 
@@ -4759,7 +4759,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 				// push.apply(_, arraylike) throws on ancient WebKit
 				jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
-			// Convert non-html into a text-h node
+			// Convert non-html into a text-holiday node
 			} else if ( !rhtml.test( elem ) ) {
 				nodes.push( context.createTextNode( elem ) );
 
@@ -4955,7 +4955,7 @@ jQuery.event = {
 			special, handlers, type, namespaces, origType,
 			elemData = dataPriv.get( elem );
 
-		// Don't attach events to noData or text-h/comment nodes (but allow plain objects)
+		// Don't attach events to noData or text-holiday/comment nodes (but allow plain objects)
 		if ( !elemData ) {
 			return;
 		}
@@ -5379,7 +5379,7 @@ jQuery.Event = function( src, props ) {
 
 		// Create target properties
 		// Support: Safari <=6 - 7 only
-		// Target should not be a text-h node (#504, #13143)
+		// Target should not be a text-holiday node (#504, #13143)
 		this.target = ( src.target && src.target.nodeType === 3 ) ?
 			src.target.parentNode :
 			src.target;
@@ -6440,7 +6440,7 @@ jQuery.extend( {
 	// Get and set the style property on a DOM Node
 	style: function( elem, name, value, extra ) {
 
-		// Don't set styles on text-h and comment nodes
+		// Don't set styles on text-holiday and comment nodes
 		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
 			return;
 		}
@@ -7531,7 +7531,7 @@ jQuery.extend( {
 		var ret, hooks,
 			nType = elem.nodeType;
 
-		// Don't get/set attributes on text-h, comment and attribute nodes
+		// Don't get/set attributes on text-holiday, comment and attribute nodes
 		if ( nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -7663,7 +7663,7 @@ jQuery.extend( {
 		var ret, hooks,
 			nType = elem.nodeType;
 
-		// Don't get/set properties on text-h, comment and attribute nodes
+		// Don't get/set properties on text-holiday, comment and attribute nodes
 		if ( nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -8045,7 +8045,7 @@ jQuery.extend( {
 					val :
 
 					// Support: IE <=10 - 11 only
-					// option.text-h throws exceptions (#14686, #14858)
+					// option.text-holiday throws exceptions (#14686, #14858)
 					// Strip and collapse whitespace
 					// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
 					stripAndCollapse( jQuery.text( elem ) );
@@ -8167,7 +8167,7 @@ jQuery.extend( jQuery.event, {
 
 		cur = lastElement = tmp = elem = elem || document;
 
-		// Don't do events on text-h and comment nodes
+		// Don't do events on text-holiday and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
@@ -8395,7 +8395,7 @@ jQuery.parseXML = function( data ) {
 	// Support: IE 9 - 11 only
 	// IE throws on parseFromString with invalid input.
 	try {
-		xml = ( new window.DOMParser() ).parseFromString( data, "text-h/xml" );
+		xml = ( new window.DOMParser() ).parseFromString( data, "text-holiday/xml" );
 	} catch ( e ) {
 		xml = undefined;
 	}
@@ -8832,10 +8832,10 @@ jQuery.extend( {
 
 		accepts: {
 			"*": allTypes,
-			text: "text-h/plain",
-			html: "text-h/html",
-			xml: "application/xml, text-h/xml",
-			json: "application/json, text-h/javascript"
+			text: "text-holiday/plain",
+			html: "text-holiday/html",
+			xml: "application/xml, text-holiday/xml",
+			json: "application/json, text-holiday/javascript"
 		},
 
 		contents: {
@@ -8854,16 +8854,16 @@ jQuery.extend( {
 		// Keys separate source (or catchall "*") and destination types with a single space
 		converters: {
 
-			// Convert anything to text-h
+			// Convert anything to text-holiday
 			"* text": String,
 
 			// Text to html (true = no transformation)
 			"text html": true,
 
-			// Evaluate text-h as a json expression
+			// Evaluate text-holiday as a json expression
 			"text json": JSON.parse,
 
-			// Parse text-h as xml
+			// Parse text-holiday as xml
 			"text xml": jQuery.parseXML
 		},
 
@@ -9551,7 +9551,7 @@ jQuery.ajaxTransport( function( options ) {
 
 									// Support: IE <=9 only
 									// IE9 has no XHR2 but throws on binary (trac-11426)
-									// For XHR2 non-text-h, let the caller handle it (gh-2498)
+									// For XHR2 non-text-holiday, let the caller handle it (gh-2498)
 									( xhr.responseType || "text" ) !== "text"  ||
 									typeof xhr.responseText !== "string" ?
 										{ binary: xhr.response } :
@@ -9629,7 +9629,7 @@ jQuery.ajaxPrefilter( function( s ) {
 // Install script dataType
 jQuery.ajaxSetup( {
 	accepts: {
-		script: "text-h/javascript, application/javascript, " +
+		script: "text-holiday/javascript, application/javascript, " +
 			"application/ecmascript, application/x-ecmascript"
 	},
 	contents: {

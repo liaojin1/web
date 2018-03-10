@@ -33,21 +33,21 @@
     var oDiv1 = document.getElementsByClassName("div1")[0];
     var oDiv2 = document.getElementsByClassName("div2")[0];
     var oDiv3 = document.getElementsByClassName("div3")[0];
-//    oDiv1.onclick = function (e) {
-//        console.log(e);
-//        console.log("div1");
-//    }
-//    oDiv2.onclick = function () {
-//        console.log("div2");
-//    }
-//    oDiv3.onclick = function (e) {
-//        console.log("div3");
-//        e.stopPropagation();//阻止事件冒泡
-//    }
-//    oDiv3.onclick = function (e) {
-//        console.log("div3-1");
-//        e.stopPropagation();//阻止事件冒泡
-//    }
+    oDiv1.onclick = function (e) {
+        console.log(e);
+        console.log("div1");
+    }
+    oDiv2.onclick = function () {
+        console.log("div2");
+    }
+    oDiv3.onclick = function (e) {
+        console.log("div3");
+        e.stopPropagation();//阻止事件冒泡
+    }
+    oDiv3.onclick = function (e) {//onclick的覆盖性质
+        console.log("div3-1");
+        e.stopPropagation();//阻止事件冒泡
+    }
 
 //    oDiv3.addEventListener("click",function () {
 //        console.log("div3");
@@ -121,41 +121,41 @@
 //        console.log("div3");
 //    }
 
-    function fn1() {
-        console.log(this);
-    }
-    addEvent(oDiv3,"click",fn1);
-//封装
-    function addEvent(elem,eve,fun) {
-        if(elem.addEventListener){//能力测试
-            elem.addEventListener(eve,fun);
-        }else if(elem.attachEvent){
-            elem.attachEvent("on"+eve,fun);
-        }else{
-            elem["on"+eve] = fun;
-        }
-    }
+//    function fn1() {
+//        console.log(this);
+//    }
+//    addEvent(oDiv3,"click",fn1);
+////封装
+//    function addEvent(elem,eve,fun) {
+//        if(elem.addEventListener){//能力测试
+//            elem.addEventListener(eve,fun);
+//        }else if(elem.attachEvent){
+//            elem.attachEvent("on"+eve,fun);
+//        }else{
+//            elem["on"+eve] = fun;
+//        }
+//    }
+////
+////    removeEvent(oDiv3,"click",fn1);
+//    function removeEvent(elem,eve,fun) {
+//        if(false){
+//            elem.removeEventListener(eve,fun);
+//        }else if(elem.detachEvent){
+//            elem[fun] = function () {
+//                fun.call(elem);
+//            }
+//            elem.detachEvent("on"+eve,aa);
+//        }else{
+//            elem["on"+eve] = null;
+//        }
+//    }
 //
-//    removeEvent(oDiv3,"click",fn1);
-    function removeEvent(elem,eve,fun) {
-        if(false){
-            elem.removeEventListener(eve,fun);
-        }else if(elem.detachEvent){
-            elem[fun] = function () {
-                fun.call(elem);
-            }
-            elem.detachEvent("on"+eve,aa);
-        }else{
-            elem["on"+eve] = null;
-        }
-    }
-
-
-//动态添加时候
-    oUl.onclick = function () {
-        var This = e.target;
-        console.log(This.innerHTML);
-    }
+//
+////动态添加时候
+//    oUl.onclick = function (e) {
+//        var This = e.target;
+//        console.log(This.innerHTML);
+//    }
 </script>
 </body>
 </html>
