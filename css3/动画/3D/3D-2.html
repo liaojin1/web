@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width:200px;
+            height: 100px;
+            background: red;
+            animation: move 2s linear forwards 1s infinite;
+            /*forwards停到100%状态,1s延时状态,infinite循环一直动*/
+        }
+        @keyframes move {
+            /*move名字自定义*/
+            0%{
+                width:200px;
+            }
+            50%{
+                width: 400px;
+
+            }
+            100%{
+                width:200px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+</body>
+</html>

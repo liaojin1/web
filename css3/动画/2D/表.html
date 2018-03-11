@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../jquery/js/jquery-3.3.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        .box{
+            width: 202px;
+            height:202px;
+            margin: 0 auto;
+            border:1px dashed #000;
+        }
+        .watch{
+            position: relative;
+            width: 200px;
+            height:200px;
+            border:1px solid #000;
+            border-radius: 50%;
+        }
+        .watch ul{
+            position: relative;
+            width: 200px;
+            height:200px;
+        }
+        .watch ul li{
+            position: absolute;
+            left: 100px;
+            height: 10px;
+            width:1px;
+            background-color: #000;
+            transform-origin: 0 100px;
+        }
+        /*.watch ul li:nth-child(5n+1){*/
+            /*height: 20px;*/
+        /*}*/
+        .second,.minute,.hour{
+            position: absolute;
+            left: 100px;
+            transform-origin: bottom;
+        }
+        .second{
+            top:40px;
+            height: 60px;
+            width: 2px;
+            background-color: blueviolet;
+
+        }
+        .minute{
+            top:60px;
+            height: 40px;
+            width: 2px;
+            background-color: teal;
+        }
+        .hour{
+            top:80px;
+            height: 20px;
+            width: 2px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="watch">
+        <ul class="kedu">
+
+        </ul>
+        <div class="second"></div>
+        <div class="minute"></div>
+        <div class="hour"></div>
+    </div>
+</div>
+<script>
+    var oHour = document.getElementsByClassName("hour")[0];
+    var oMinute = document.getElementsByClassName("minute")[0];
+    var oSecond = document.getElementsByClassName("second")[0];
+    var okedu = document.getElementsByTagName("ul")[0];
+    for(var i=0;i<60;i++){//动态添加60个li
+        okedu.innerHTML += '<li style="transform: rotate('+6*i+'deg);height: 5px;"></li>';
+        if(i%5==0){
+            okedu.innerHTML += '<li style="transform: rotate('+6*i+'deg)"></li>';
+        }
+    }
+    function clock() {
+        var timer = new Date();
+        var second = timer.getSeconds();
+        var minute = timer.getMinutes()+second/60;
+        var houer = timer.getHours()+minute/60;
+
+        oSecond.style.transform = 'rotate('+second*6+'deg)';
+        oHour.style.transform = 'rotate('+houer*30+'deg)';
+        oMinute.style.transform = 'rotate('+minute*6+'deg)';
+    }
+    clock();//先执行，否则会出现闪回0:0:0
+    setInterval(function () {
+        clock();
+    },1000);
+
+
+
+
+</script>
+</body>
+</html>
