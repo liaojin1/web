@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left: -150px;
+            margin-top: -100px;
+
+            -webkit-box-shadow: 6px 6px 6px 5px rgba(0,0,0,.5);
+            -moz-box-shadow: 6px 6px 6px 5px rgba(0,0,0,.5);
+            -ms-box-shadow:6px 6px 6px 5px rgba(0,0,0,.5);
+            -o-box-shadow: 6px 6px 6px 5px rgba(0,0,0,.5);
+            box-shadow: 6px 6px 6px 5px rgba(0,0,0,.5);
+            border-radius: 10px;
+            transition: all 1s linear;
+        }
+        .box{
+            background-color: tomato;
+            transform: rotate(35deg);
+
+        }
+        .box:hover{
+            z-index: 100;
+            /*transform: scale(1.5);*/
+            transform: rotate(0deg) scale(1.2);
+        }
+        .div1{
+            background-color: turquoise;
+            transform: rotate(-35deg);
+        }
+        .div1:hover{
+            z-index: 100;
+            /*transform: scale(1.5);*/
+            transform: rotate(0deg) scale(1.2);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+</div>
+<div class="div1">
+
+</div>
+</body>
+</html>
