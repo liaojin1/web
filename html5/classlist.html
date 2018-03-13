@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .style2{
+            font-size: 30px;
+        }
+        .style1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">xiaohuoban20</div>
+<button id="btn">anniu</button>
+<script>
+    var oDiv = document.getElementById("div1");
+    document.getElementById("btn").onclick=function () {
+        oDiv.classList.toggle("style1");//提交一次和两次不同分别添加属性，删除属性交替
+        console.log(oDiv.classList.length);
+    }
+    //    oDiv.className += "style1";
+    oDiv.classList.add("style1");
+    oDiv.classList.remove("style2");
+
+</script>
+</body>
+</html>

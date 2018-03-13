@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <!--action传输接口地址-->
+    <!--form括起来的是表单-->
+    <!--<input type="button" value="按钮">不提交-->
+    <!--<input type="submit" value="提交">提交数据库-->
+    <input type="text" id="username" name="user-name">文本框
+    <label for="username">用户名</label>
+
+    <input type="checkbox" name=""><!--name后台交互使用-->
+    <p>
+        <input type="email">
+        <input type="date">
+        <input type="datetime">
+    </p>
+
+    <p>
+        <input type="number" max="10" step="2">
+        <!--最大10一次加2-->
+        <input type="range">
+        <!--滑块一般自己写-->
+    </p>
+    <label>用户名<input type="text"></label>
+    <label>用户名<input type="text" autofocus placeholder="用户名"></label>
+
+    <input id="mycar" list="cars">
+    <datalist id="cars">
+        <option value="bbb"></option>
+        <option value="aaa"></option>
+        <option value="ccc"></option>
+    </datalist>
+
+    <select name="" id="">
+        <option value="bbb">1</option>
+        <option value="aaa">2</option>
+        <option value="ccc">3</option>
+    </select>
+</form>
+</body>
+</html>

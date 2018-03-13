@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        window.onload=function () {
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1" test1="nest" data-aaa="11" data-bbb-ccc="22"></div>
+<div id="div2"></div>
+<script>
+    var oDiv = document.getElementById("div1");
+    var aa = oDiv.getAttribute("test1");//获取自定义属性名
+    var aa1 = oDiv.dataset.aaa;
+    console.log(oDiv.dataset);
+    oDiv.dataset.bbb-ccc;//error原生js以对象调取不能有横线，需要将横线后第一个字母大写，字符串则不需要
+    console.log(aa1);
+    console.log(aa);
+    document.getElementById("div2").setAttribute("");
+
+
+    console.log($("#div1").data("aaa"));//jquery获取方式
+</script>
+</body>
+</html>
