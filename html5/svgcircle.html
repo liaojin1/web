@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        svg{
+            transform: rotate(-90deg);
+        }
+        #box{
+            position: relative;
+        }
+        #count{
+            position: absolute;
+            font-size:60px;
+            font-weight:bolder;
+            top:75px;
+            left: 90px;
+        }
+        #cir{
+            stroke-dashoffset:0;
+            stroke-dasharray:628;
+            /*transition: all 1s linear;*/
+
+            animation: draw 10s linear;
+        }
+        @keyframes draw{
+            0%{
+                stroke-dashoffset:628;
+            }
+            100%{
+                stroke-dashoffset:0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <svg height="240" width="240">
+        <circle cx="120px" cy="120px" r="100" style="fill:#fff;stroke-width:20;stroke:#43AEFA;"/>
+        <!-- fill在创建的图形里填充颜色 -->
+        <circle id="cir" cx="120px" cy="120px" r="100" style="fill:transparent;stroke-width:20;stroke:#F4F1F1;"/>
+    </svg>
+    <div id="count">10</div>
+</div>
+<script type="text/javascript">
+    var oCount = document.querySelector("#count");
+    var oCir = document.querySelector("#cir");
+    var once = 628/10;
+    var t= 10;
+    var timer = setInterval(function(){
+
+        t--;
+
+
+        if(t<0){
+
+            clearInterval(timer);
+        }else{
+            oCount.innerHTML = t;
+        }
+        // }else{
+        // 	oCir.style.strokeDashoffset=once*t-628;
+        // }
+    },1000)
+</script>
+</body>
+</html>

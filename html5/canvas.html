@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div>canvas默认有效果
+高宽不能再style中设置
+    需要内联设置
+    再style中设置如果宽高不按比例画板内会变形或者失真
+</div>
+<canvas id="box" width="400" height="400">
+    
+</canvas>
+<script>
+    var oBox = document.querySelector("#box");
+    var context = oBox.getContext("2d");//声明画布,获得2d上下文对象
+    context.beginPath();//定义了一个新的路径绘制动作的开始
+    context.moveTo(10,10);//起始点（x,y）坐标
+    context.lineTo(100,100);//
+    context.lineWidth = 10;//线的宽度无单位（js中直接写数值一般无单位，除非字符串拼接）
+    context.strokeStyle = "#fff";
+    context.stroke();//将上边的代码在画布上执行
+
+
+    context.beginPath();
+    context.moveTo(10,10);//起始点（x,y）坐标
+    context.lineTo(10,200);//终止点顺序不能错
+    context.strokeStyle = "#f00";
+    context.stroke();
+
+    context.beginPath();
+    context.arc(100,100,50,1.1*Math.PI,1.9*Math.PI,false);
+
+</script>
+</body>
+</html>
