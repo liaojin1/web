@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>//local storage,session storage,cookies通过js基础
+//cookie必须设置过期时间才能删除，cookie需要在已搭建的服务器上才能写东西
+    var timer = new Date();//获取时间对象
+    var timer1=new Date();
+    timer.setDate(timer.getDate()+10);//获取当前时间加10天，set设置时间
+    timer1.setDate(timer1.getDate()-1);//设置过期时间为昨天
+//    console.log("expries="+timer);
+    document.cookie = "name=xiaoming;expires="+timer.toUTCString();//expires设置过期时间,为什么要加toUTCString（）；？？
+    document.cookie = "age=18;expires="+timer.toUTCString();
+    document.cookie = "school=heida;expires="+timer.toUTCString();
+//    document.cookie = "age=null;expires="+timer1.toUTCString();//如果不加expires则仅仅是把18给覆盖掉并不能删除age属性
+    console.log(document.cookie);
+
+    //将上述封装为函数
+    function getCookie(key) {
+        var arr = document.cookie.split(";");//split将字符串分割为数组
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].split("=")[0].trim()==key){//trim(),删除字符串前后多余空格
+                return arr[i].split("=")[1];
+            }
+        }
+//        console.log(arr);
+    }
+
+    function setCookie(key,value,expires) {
+        var timer = new Date();
+        timer.setDate(timer.getDate()+expires);
+        document.cookie = key+"="+value+";expries="+timer.toUTCString();
+    }
+    function delCookie(key) {
+        var timer = new Date();
+        timer.setDate(timer.getDate()-1);
+        document.cookie = key+"=null;expries="+timer.toUTCString();
+    }
+
+    setCookie("home","harbin",5);
+    delCookie("home");
+    console.log(getCookie("home"));//age前边有空格，所以输出undefined
+</script>
+</body>
+</html>

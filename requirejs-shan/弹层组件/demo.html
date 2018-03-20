@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            /*尽量不要写在自己的组件里*/
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="dialog.css">
+</head>
+<body>
+<button id="btn">click</button>
+<button id="btn-close">close</button>
+<!--<div class="dialog-container">-->
+    <!--&lt;!&ndash;要用class不能使用id，如果你想要添加&ndash;&gt;-->
+    <!--&lt;!&ndash;属性只需要在class里加名字&ndash;&gt;-->
+    <!--&lt;!&ndash;而id是唯一的，就不可以修改&ndash;&gt;-->
+    <!--<div class="dialog-mask"></div>-->
+    <!--<div class="dialog-box">-->
+        <!--<div class="dialog-title-box">-->
+            <!--&lt;!&ndash;未来其他人使用组件时文字会有变化因-->
+            <!--此不能写死，使用dialog-title-box的span-->
+            <!--将来可以随意修改文字&ndash;&gt;-->
+            <!--<span class="dialog-title">-->
+                <!--这是一个对话框</span>-->
+            <!--<span class="dialog-close-btn">[X]</span>-->
+        <!--</div>-->
+        <!--<div class="dialog-content"></div>-->
+
+    <!--</div>-->
+<!--</div>-->
+<script src="require.js" data-main="demo"></script>
+<!--入口文件应该写页面级的js调用dialog组件-->
+<!--而不是一步一步加载进来-->
+</body>
+</html>

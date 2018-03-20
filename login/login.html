@@ -23,8 +23,8 @@
                 <div class="login-content">
                     <div class="login-input">
                         <!--有form时候submit提交表单-->
-                        <input type="text" placeholder="邮箱/手机号/小米ID">
-                        <input type="text" placeholder="密码">
+                        <input id="username" type="text" placeholder="邮箱/手机号/小米ID">
+                        <input id="password" type="password" placeholder="密码">
                     </div>
                     <div class="login-btn">
                         <input type="submit" value="登录">
@@ -64,5 +64,77 @@
             </div>
         </div>
     </div>
+    <script>
+        sessionStorage.username = "1254701479@qq.com";
+        sessionStorage.setItem("password","123456");
+
+        var u = document.getElementById("username");
+        var p = document.getElementById("password");
+        u.onkeypress=function () {
+            console.log(document.getElementById("username").value);
+        }
+        p.onkeyup=function () {
+            console.log(document.getElementById("password").value);
+        }
+
+        var oBtn = document.getElementsByClassName("login-btn")[0];
+        oBtn.onclick = function () {//点击登录按钮之后获取input文本框内的值
+//            var u = document.getElementById("username").value;
+//            var p = document.getElementById("password").value;
+//            console.log(u,p);
+//            console.log(sessionStorage.username);
+//            console.log(sessionStorage.getItem("password"));
+            if((u==sessionStorage.username)&&(p==sessionStorage.getItem("password"))){
+                alert("登陆成功!");
+            }else{
+                alert("用户名或密码错误");
+            }
+        }
+
+//        sessionStorage.username = "1254701479@qq.com";
+//        sessionStorage.setItem("password","123456");
+//
+//        var oBtn = document.getElementsByClassName("login-btn")[0];
+//        oBtn.onclick = function () {//点击登录按钮之后获取input文本框内的值
+//            var u = document.getElementById("username").value;
+//            var p = document.getElementById("password").value;
+//            console.log(u,p);
+//            console.log(sessionStorage.username);
+//            console.log(sessionStorage.getItem("password"));
+//            if((u==sessionStorage.username)&&(p==sessionStorage.getItem("password"))){
+//                alert("登陆成功!");
+//            }else{
+//                alert("用户名或密码错误");
+//            }
+//        }
+
+
+//        function getCookie(key) {
+//            var arr = document.cookie.split(";");//split将字符串分割为数组
+//            for(var i=0;i<arr.length;i++){
+//                if(arr[i].split("=")[0].trim()==key){//trim(),删除字符串前后多余空格
+//                    return arr[i].split("=")[1];
+//                }
+//            }
+//        }
+//        function setCookie(key,value,expires) {
+//            var timer = new Date();
+//            timer.setDate(timer.getDate()+expires);
+//            document.cookie = key+"="+value+";expries="+timer.toUTCString();
+//        }
+//        setCookie("username","1254701479@qq.com",5);
+//        setCookie("password","123456",5);
+//        var oBtn = document.getElementsByClassName("login-btn")[0];
+//        oBtn.onclick = function () {//点击登录按钮之后获取input文本框内的值
+//            var u = document.getElementById("username").value;
+//            var p = document.getElementById("password").value;
+//            if((u==getCookie("username"))&&(p==getCookie("password"))){
+//                alert("登陆成功!");
+//            }else{
+//                alert("用户名或密码错误");
+//            }
+//        }
+
+    </script>
 </body>
 </html>

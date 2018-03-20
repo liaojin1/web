@@ -1,0 +1,60 @@
+
+/*html,body{
+如果要兼容IE6则需要写出*/
+    /*!*html和body高度都是0 *!*/
+    /*!*都是由内容撑开的，*/
+    /*因此需要设置width和height*!*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+.dialog-container{
+    /*如果要兼容IE6则需要写出注释的width和height*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background-color: #f00;*/
+    position: absolute;
+    left: 0;
+    top:0;
+    bottom: 0;
+    right: 0;
+}
+.dialog-mask{
+    width:100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+}
+.dialog-box{
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    /*弊端知道元素高宽*/
+    left: 50%;
+    margin-left: -200px;
+    top:50%;
+    margin-top: -150px;
+    /*不知道元素高宽使用css3,但是存在兼容性问题*/
+    /*left:50%;*/
+    /*top:50%;*/
+    /*transform: translate(-50%,-50%);*/
+
+}
+.dialog-title-box{
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    background: #ccc;
+}
+.dialog-title{
+    float: left;
+}
+.dialog-close-btn{
+    float: right;
+    /*IE7会在dialog-title-box元素下边一行*/
+    /*因为dialog-title-box没有左侧浮动，*/
+    /*导致dialog-title-box占满整个一行*/
+    /*dialog-close-btn不能浮动上去所以
+    dialog-title-box需要设置左浮*/
+}

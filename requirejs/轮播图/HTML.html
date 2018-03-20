@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float: left;
+        }
+        .slider-box{
+            position: relative;
+            width: 520px;
+            height: 280px;
+        }
+        .slider-img li{
+            position: absolute;
+            top:0;
+            left: 0;
+            display: none;
+        }
+        .slider-nav{
+            position: absolute;
+            bottom: 10px;
+            left:10px;
+
+        }
+        .slider-nav li,.slider-btn li{
+            height: 20px;
+            width:20px;
+            background-color: #000;
+            color: white;
+            margin-left: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .slider-btn{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .slider-img .active{
+            display: block;
+        }
+        .slider-nav .active{
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+<div class="slider-box">
+    <div class="slider-img">
+        <ul>
+            <li><img src="" alt=""></li>
+            <li class="active"><img src="" alt=""></li>
+            <li><img src="" alt=""></li>
+            <li><img src="" alt=""></li>
+        </ul>
+    </div>
+    <div class="slider-nav">
+        <ul>
+            <li>1</li>
+            <li class="active">2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div class="slider-btn">
+        <ul>
+            <li>&lt;</li>
+            <li>&gt;</li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    function slider() {
+        this.$box = $('<div class="slider-box"></div>');
+        this.$img = $('<div class="slider-img"></div>');
+        this.$nav = $('<div class="slider-nav"></div>');
+        this.$btn = $('<div class="slider-btn"></div>');
+        this.$prv = $('<li>&lt;</li>');
+        this.$nex = $('<li>&gt;</li>');
+        var defaultSettings = {
+            arr:['img/1','img/2','img/3','img/4'],
+            time:1000,
+            content:"#div1"
+        }
+    }
+    slider.prototype.init = function () {
+        this.$box.append(this.$img).append(this.$nav).append(this.$btn);
+        this.$btn.append(this.$prv).append(this.$nex);
+        var imgHtml = '<ul>';
+        var navHtml = '<ul>';
+
+        for(var i=0;i<this.defaultSettings.arr.length;i++){
+            imgHtml+='<li><img src="'+this.defaultSettings.arr[i]+'.jpg" alt=""></li>';
+            navHtml+='<li>'+(i+1)+'</li>';
+        }
+        imgHtml+="</ul>";
+        navHtml+='</ul>';
+        this.$img.append(imgHtml);
+        this.$nav.append(navHtml);
+        $(this.defaultSettings.content).append(this.$box);
+        $(this.$img).children('ul').children('li').eq(0).addClass('active');
+    };
+
+//    var globalIndex = 0;
+//    setInterval(function () {
+//        changeImg(globalIndex);
+//    },1000);
+//    function changeImg(index) {
+//
+//    }
+</script>
+</body>
+</html>
