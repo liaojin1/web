@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function exeReg(reg,str){
+        console.log(reg.exec(str));
+    }
+    function matchReg(reg,str){
+        var result = str.match(reg);
+        if(result){
+            console.log('index:'+result.index);
+            console.log('input:'+result.input);
+            for(var i=0;i<result.length;i++){
+                console.log('result['+i+']:'+result[i]);
+            }
+        }else{
+            console.log("失败");
+        }
+    }
+    matchReg(/b/g,'bbsbblueidea.com');
+    matchReg(/b/,'bbsbblueidea.com');
+</script>
+
+</body>
+</html>
