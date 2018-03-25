@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        header,nav,footer{
+            height: 100px;
+            background-color: #dddddd;
+            width: 100%; /*如果width写了固定宽度，并且在页面缩小到一定程度的时候变成100%则为响应式布局*/
+            max-width: 960px;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        .aaa{
+            width: 100%;
+
+
+        }
+        .photo{
+
+            background: url("2.jpg") center/cover;
+            /*缩写background-size和background-position需要加斜线********/
+            width: 100%;
+            padding-bottom: 56.25%;
+        }
+        article{
+            display: block;
+            width: 100%; /*如果width写了固定宽度，并且在页面缩小到一定程度的时候变成100%则为响应式布局*/
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        section{
+            height: 300px;
+            float: left;
+            text-align: center;
+            display: table;
+
+        }
+        p{
+            display: table-cell;
+            vertical-align: middle;
+            /*只能设置行级元素*/
+        }
+        .left{
+            width: 70%;
+            background-color: yellow;
+        }
+        .right{
+            width: 25%;
+            margin-left: 5%;
+            background-color: greenyellow;
+        }
+
+        @media (max-width:600px){
+            .clearfix section{
+                width: 100%;
+                margin: 10px 0 0;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<header>页头</header>
+<nav>导航</nav>
+<article class="aaa">
+    <div class="photo">
+
+    </div>
+    <!--<img src="2.jpg" alt="">-->
+</article>
+<article class="clearfix">
+    <section class="left">
+        <p>一般形式：类型说明符 *变量名；*表示这是一个指针变量，变量名即为定义的指针变量名，类型说明符表示本指针变量所指向的变量的数据类型。注意：一个指针变量只能指向同类型的变量。指针变量使用前必须赋值且赋的值只能为地址，未经赋值的指针变量不能使用。（否则将会造成系统混乱甚至死机</p>
+    </section>
+    <section class="right">
+        <p>一般形式：类型说明符 *变量名；*表示这是一个指针变量，变量名即为定义的指针变量名，类型说明符表示本指针变量所指向的变量的数据类型。注意：一个指针变量只能指向同类型的变量。指针变量使用前必须赋值且赋的值只能为地址，未经赋值的指针变量不能使用。（否则将会造成系统混乱甚至死机</p>
+    </section>
+</article>
+<footer>页脚</footer>
+
+</body>
+</html>

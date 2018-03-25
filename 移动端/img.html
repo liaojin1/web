@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .container{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+        }
+        .header,.footer,.nav{
+            margin: 0 auto 8px auto;
+            text-align: center;
+            height: 50px;
+            width: 100%;
+            background: #dddddd;
+            line-height: 50px;
+        }
+        img{
+            width:100%;
+            display: block;
+        }
+        @media (max-width:800px) {
+            .header,.footer,.nav,img{
+                width: 100%;
+            }
+            img{
+                width: 100%;
+            }
+
+        }
+        @media (max-width: 615px){
+            .container .h{
+                height: 100%;
+            }
+            .h .w-left{
+
+                min-width: 200px;
+                width: 100%;
+                background-color: greenyellow;
+                text-align: center;
+                line-height: 100%;
+            }
+            .h .w-right{
+
+                min-width: 200px;
+                width: 100%;
+                background-color: yellow;
+            }
+        }
+        .h{
+            margin: 0 auto 8px auto;
+            width: 100%;
+            height: 200px;
+
+        }
+
+        p{
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .w-left{
+
+            float: left;
+            display: inline;
+            width: 60%;
+            height: 200px;
+            background-color: greenyellow;
+            margin-right: 10%;
+            text-align: center;
+            line-height: 100%;
+        }
+        .w-right{
+            float: right;
+            display: inline;
+            height: 200px;
+            width: 30%;
+            background-color: yellow;
+        }
+        .w-left,.w-right{
+
+             display: table;
+         }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">页头</div>
+    <div class="nav">导航</div>
+    <img src="2.jpg" alt="">
+    <div class="h clearfix">
+        <div class="w-left">
+            <p>
+                一般形式：类型说明符 *变量名；*表示这是一个指针变量，变量名即为定义的指针变量名，类型说明符表示本指针变量所指向的变量的数据类型。注意：一个指针变量只能指向同类型的变量。指针变量使用前必须赋值且赋的值只能为地址，未经赋值的指针变量不能使用。（否则将会造成系统混乱甚至死机）</div>
+
+            </p>
+        <div class="w-right">
+            <p>
+                类型说明符表示本指针变量所指向的变量的数据类型。注意：一个指针变量只能指向同类型的变量。指针变量使用前必须赋值且赋的值只能为地址，未经赋值的指针变量不能使用。（否则将会造成系统混乱甚至死机）</div>
+
+            </p>
+    </div>
+    <div class="footer">页尾</div>
+</div>
+
+</body>
+</html>
