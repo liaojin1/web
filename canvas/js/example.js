@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var rubberbandDiv = document.getElementById('rubberbandDiv');
 var resetButton = document.getElementById('resetButton');
-
+var flag = false;
 var image = new Image();
 //obj
 var rubberbandRectangle = {};
@@ -18,7 +18,7 @@ function rubberbandStart(x,y){
 
     moveRubberbandDiv();
     showRubberbandDiv();
-
+    flag = true;
 
 }
 
@@ -58,7 +58,7 @@ __proto__:ClientRect*/
     rubberbandDiv.style.height = 0;
 
     hideRubberbandDiv();
-
+    flag = false;
 }
 
 function moveRubberbandDiv(){
@@ -72,7 +72,7 @@ function ResizeRubberbandDiv(){
 }
 
 function showRubberbandDiv(){
-    rubberbandDiv.style.dispaly = 'block';
+    rubberbandDiv.style.display = 'inline';
 }
 
 function hideRubberbandDiv(){
@@ -102,7 +102,10 @@ window.onmousemove = (e) => {
     var x = e.clientX;
     var y = e.clientY;
 e.preventDefault();
+if(flag){
 rubberbandStretch(x,y);        
+    
+}
 };
 //
 window.onmouseup = (e) => {
