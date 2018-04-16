@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: relative;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background: rebeccapurple;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="app">
+    <button v-on:click='clickhandler'>click</button>
+    <button v-on:click='clickhandler1(2,$event)'>click</button>
+    <!-- <button @click='clickhandler>btn</button>简写形式 -->
+    <div>{{num}}</div>
+    <!-- <div v-text='num'></div>防止提前先加载花括号后再赋值 -->
+
+    <button v-on='{mousedown:doThis,mouseup:doThat}'>btn2</button>
+
+    <div class="div1" @click='clickDiv1'>
+        <!-- <div2 class="div2" @click='clickDiv2($event)'></div2> -->
+        <div2 class="div2" @click.stop='clickDiv2($event)'></div2>    
+    </div>
+
+    <a href="http://www.baidu.com" @click.prevent='baiduClick($event)'>baidu</a>
+    <!-- <form action="" submit.prevent></form>阻止之后什么都不做 -->
+
+    <!-- <button @click.stop.prevent=''>btn3</button>即阻止事件冒泡又阻止默认事件 -->
+
+    <!-- 输入之后判断回车是否有作用 -->
+    <input type="text" @keyup='keyupHandler($event)'>
+<!-- 键代码 -->
+    <input type="text" @keyup.13='keyupHandler($event)'>
+<!-- 键别名 -->
+    <input type="text" @keyup.enter='keyupHandler($event)'>
+    
+    <!-- @click.once只有点一次有效果 -->
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+           num:0 
+        },
+        methods:{
+          clickhandler(){
+              this.num++;
+              console.log(Math.random());
+          },
+          clickhandler1(n,e){
+            this.num += n;
+          },
+          doThis(){
+              console.log('This');
+          },
+          doThat(){
+              console.log('doThat');
+          },
+          clickDiv1(){
+              console.log('div1');
+            },
+          clickDiv2(e){
+              console.log('div2');
+            //   e.stopPropagation();//阻止冒泡动作
+              
+          },
+          baiduClick(e){
+            //   e.preventDefault();//阻止默认动作，如链接点击进行跳转
+            alert('can not!');
+        },
+        keyupHandler(e){
+            if(e.keyCode == 13){
+                console.log('回车键起作用');
+            }
+        }
+        }
+    });
+</script>
+</body>
+</html>

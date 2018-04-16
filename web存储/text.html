@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--存在客户端，使用cookie-->
+<form id="loginForm" action="index.html" method="post">
+    <!--一般表单都是post，超链接网页地址栏为get方式-->
+    <p>
+        username: <input type="text" id="username"/>
+    </p>
+    <p>
+        password: <input type="password" id="password"/>
+    </p>
+    <p>
+        <input type="checkbox" id="save">两周免登陆
+        <input type="submit" value="login">
+    </p>
+</form>
+<script>
+//使用cookie：百度搜索框，
+//网页两边小广告商品推荐，可以看到曾经看到的商品，即使不登录也给推荐商品，使用cookie
+//在数据库中存必须用户登录，而cookie是浏览器，商品也是推荐给浏览器的
+
+    (function () {
+        function getCookie(key) {
+            var arr = document.cookie.split(";");//split将字符串分割为数组
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].split("=")[0].trim()==key){//trim(),删除字符串前后多余空格
+                    return arr[i].split("=")[1];
+                }
+            }
+//        console.log(arr);
+        }
+
+        function setCookie(key,value,expires) {
+            var timer = new Date();
+            timer.setDate(timer.getDate()+expires);
+            document.cookie = key+"="+value+";expries="+timer.toUTCString();
+        }
+        function delCookie(key) {
+            var timer = new Date();
+            timer.setDate(timer.getDate()-1);
+            document.cookie = key+"=null;expries="+timer.toUTCString();
+        }
+
+        var OloginForm = document.getElementById('loginForm');
+        var oSave = document.getElementById('save');
+        var oUsername = document.getElementById('username');
+        var oPassword = document.getElementById('password');
+
+        var username = cookie.getCookie('username');
+        var password = cookie.getCookie('password');
+        //获取客户端上的cookie的用户名和密码，cookie是不安全的是可以修改的
+        //获取到之后需要将值填入文本框中再次进行检测，检测成功之后在登录跳转至主页面
+        if(username && password){
+            oUsername.value = username;
+            oPassword.value = password;
+            ologinForm.submit();//直接提交表单
+        }
+
+        OloginForm.onsubmit = function(){//在form中这个函数中有机会阻止表单提交
+            if(oSave.checked){
+                setCookie('username',oUsername.value,14);
+                setCookie('password',oPassword.value,14);
+
+            }
+            return false;//阻止提交
+        };
+    })();
+</script>
+</body>
+</html>

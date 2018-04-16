@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    
+    //不能嵌套使用，会有未知错误，层层嵌套异步加载，没办法控制异步请求时间，最多两层嵌套
+    $.get('a.json',function (ref) {
+        console.log(ref);
+        $.get('b.json',function (ref) {
+            console.log(ref);
+            $.get('c.json',function (ref) {
+                console.log(ref);
+            })
+        })
+    })
+    //解决异步编程一种方案
+    let pro1 = new Promise(function (resolve,reject) {//成功则调用resolve失败则会调用reject
+        setTimeout(function () {
+            resolve();
+        },1000);
+    }).then(function () {
+       console.log('sucess');
+    }).catch(function () {
+        console.log('fail');
+    })
+
+
+    let pro1 = new Promise(function (resolve,reject) {//成功则调用resolve失败则会调用reject
+        setTimeout(function () {
+            $.get('a.json',function (ref) {
+                console.log(ref);
+            })
+        },1000);
+    }).then(function () {
+        $.get('b.json',function (ref) {
+            console.log(ref);
+        })
+    }).catch(function () {
+        console.log('fail');
+    })
+</script>
+</body>
+</html>

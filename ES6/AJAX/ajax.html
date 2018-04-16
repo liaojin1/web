@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myDiv"></div>
+<script>
+    //ajax请求原生
+    var xmlhttp;
+    if(window.XMLHttpRequest){//主流浏览器是否兼容
+        xmlhttp = new XMLHttpRequest();
+    }else{
+        xmlhttp = new ActiveXObject('Microsoft');
+    }
+
+    xmlhttp.open('GET','test1.json?',true);//get明文传输，post加密传输
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange=function () {//监测状态码
+        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.getElementById('myDiv').innerHTML = xmlhttp.responseText;
+        }
+    }
+</script>
+</body>
+</html>

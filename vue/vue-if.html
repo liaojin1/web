@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--通过控制插入dom节点-->
+        <div v-if="testif == 'a'">a</div>
+        <div v-else-if="testif == 'b'">b</div>
+        <div v-else="">c</div>
+        <div v-if="Math.random()>0.5">大于0.5</div>
+        <div v-else-if="">小于0.5</div>
+
+        <div v-show="true">vshow</div>
+        <!--通过控制display:block-->
+        <div v-show="false">v-show</div>
+        <!--通过控制display:none-->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                testif:'a'
+            }
+        })
+    </script>
+</body>
+</html>

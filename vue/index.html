@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',//dom中的对象
+        data:{
+            msg:'hello world'
+        }
+    })
+    console.log(vm);
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--<div v-for="i in arr">{{i}}</div>-->
+    <!--<div v-for="(val,index) in arr">{{val}}:{{index+1}}</div>-->
+    <!--<div v-for="(val,key) in obj">{{key}}:{{val}}</div>-->
+    <!--<div v-for="(val,key) in obj">name:{{val.name}} age:{{val.age}} school:{{val.school}}</div>-->
+
+    <!--<div v-for="val in obj">-->
+        <!--<div v-for="val2 in val">-->
+            <!--{{val2}}-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div v-for="val in arr2">{{val}}</div>
+
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        computed:{
+          arr2(){
+              return console.log(this.arr.sort(function (a,b) {
+                  return b-a;
+              }));
+          },
+            obj2(){
+                return this.obj.sort(function (a,b) {
+                    return a.age - b.age;
+                })
+            }
+        },
+        data:{
+            arr:[2,3,4,5,6,7],
+            obj:[{
+                name:'xiaoming',
+                age:13,
+                school:'haXXX'
+            },{
+                name:'xiaoming1',
+                age:12,
+                school:'haXXX'
+            },{
+                name:'xiaoming2',
+                age:132,
+                school:'haXXX'
+            },{
+                name:'xiaoming3',
+                age:133,
+                school:'haXXX'
+            }]
+        }
+    })
+</script>
+</body>
+</html>

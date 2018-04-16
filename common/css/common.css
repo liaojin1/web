@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 微软雅黑,tahoma,arial,simsun,sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+img{
+    border: 0;
+}
+
+header{
+    height: 41px;
+    width: 100%;
+    z-index: 8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #f27a0a;
+}
+#logo{
+    height: 40px;
+    float: left;
+    width: 50px;
+}
+#logo img{
+    width: 60px;
+    height: 40px;
+}
+#logo a.moback{
+    height: 40px;
+    width: 50px;
+    display: block;
+    font-size: 22px;
+    color: #ffaf37;
+    text-align: center;
+    line-height: 40px;
+    background: url(http://img.juzimi.com/jmo/images/v2foicon.png) no-repeat center center;
+    background: url(http://img.juzimi.com/jmo/images/v2foicon.png) no-repeat center center;
+    background-size: 20px 460px;
+    background-position: center -430px;
+}
+#title{
+    font-size: 16px;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    padding-left: 5px;
+    overflow: hidden;
+    min-width: 150px;
+    max-width: 50%;
+}
+
+.more-sentence {
+    margin:10px auto 20px;
+    width: 50%;
+}
+.more-sentence a {
+    display: block;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    padding: 12px;
+    color: #5cb43f;
+}
+
+
+#footergotop {
+    width: 100%;
+    margin:28px 0 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 35px;
+    line-height: 35px;
+    background: #f6f6f6;
+    text-align: center;
+    color: #ccc;
+}
+#gotop {
+    color: #666;
+    margin-right: 15px;
+}
+#nightmode, #bottomndaymode {
+     color: #666;
+     margin-left: 15px;
+ }
+#switch {
+    text-align: center;
+    height: 35px;
+    width: 65%;
+    margin: 30px auto 15px;
+}
+#switch .on {
+    float: left;
+    display: block;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 50%;
+    padding: 8px 0 7px;
+    border: 1px solid #b1b1b1;
+    color: #000;
+}#switch .off {
+     border: 1px solid #b1b1b1;
+     color: #333;
+     border-top-right-radius: 3px;
+     border-bottom-right-radius: 3px;
+     display: block;
+     float: left;
+     text-align: center;
+     width: 50%;
+     margin-left: -1px;
+     padding: 8px 0 7px;
+ }
+.footer-bottom {
+    width: 100%;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.footer-bottom a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #666;
+}

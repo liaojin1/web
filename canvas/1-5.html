@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: #dddddd;
+        }
+        canvas{
+            background: #ffffff;
+            position: absolute;
+            left:0px;
+            top:20px;
+            margin: 20px;
+            border: thin inset rgba(100,150,230,.5);
+            cursor: pointer;
+        }
+        #readout{
+            margin-left: 15px;
+            margin-top: 10px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="readout" style="height: 100px"></div>
+    <canvas id="canvas" width="500" height="250">
+
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas'),
+            readout = document.getElementById('readout'),
+            context = canvas.getContext('2d'),
+            img = new Image();
+
+        console.log(context);
+        console.log(context.clearRect);
+
+        function windowToCanvas(canvas,x,y){
+            var bbox = canvas.getBoundingClientRect();
+            //getBoundingClientRect()以对象方式返回canvas距离屏幕四周的值以及canvas自身的宽高（包括border）
+            //        console.log(bbox);
+            return {
+                x:x-bbox.left*(canvas.width/bbox.width),//如果canvas和绘图宽高不成比例则进行缩放
+                y:y-bbox.top*(canvas.height/bbox.height)
+            };
+        }
+
+        function drawBackground(){
+            var LINE = 12,i = context.canvas.height;
+
+            context.clearRect(0,0,canvas.width,canvas.height);
+            //clearRect(x,y,width,height)清空给定矩形内的像素x，y:左上角的x，y坐标,width,height要清除的矩形高宽
+            context.strokeStyle = 'lightgray';
+            //strokeStyle设置笔触的颜色，渐变或模式color|gradient|pattern
+            //creatLinearGradient(x0,y0,x1,y1)创建线性的渐变对象，使用该对象作为strokeStyle或fillStyle属性的值。渐变开始(x0,y0),渐变结束(x1,y1);
+            //gradient.addColorStop(stop,color);规定渐变对象中的颜色和位置,stop介于0-1.0之间表示渐变开始与结束位置(对渐变对象使用该方法)
+
+            /*var canvas = document.getElementById('mycanvas'),
+            context = canvas.getContext('2d');
+            var gradient = context.creatLinearGradient(0,0,170,0);
+            gradient.addColorStop(0,'balck');
+            gradient.addColorStop(1,'white');
+
+            * */
+            context.lineWidth = 0.5;
+
+            while(i>LINE*4){
+                context.beginPath();//start a path
+                context.moveTo(0,i);//	把路径移动到画布中的指定点，不创建线条。
+                context.lineTo(context.canvas.width,i);//添加一个新点，然后在画布中创建从该点到最后指定点的线条
+                context.stroke();//draw it绘制已定义的路径。
+                i -= LINE;
+            }
+        }
+
+        function drawImages(){
+            context.drawImage(img,0,0);
+            //	context.drawImage(img,x,y);在画布上定位图像
+            //	context.drawImage(img,x,y,width,height);在画布上定位图像并规定图像的宽度和高度
+            //	context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);剪切图像并在画布上定位被剪切的部分
+        }
+
+        function drawGuidelines(x,y){
+            context.strokeStyle = 'rgba(0,0,230,.8)';
+            context.lineWidth = 0.5;
+            drawVerticalLine(x);
+            drawHorizontalLine(y);
+        }
+
+        function updateReadout(x,y){
+            readout.innerText = `(${x.toFixed(0)},${y.toFixed(0)})`;
+        }
+
+        function drawHorizontalLine(y){
+            context.beginPath();
+            context.moveTo(0,y+0.5);
+            context.lineTo(context.canvas.width,y+0.5);
+            context.stroke();
+        }
+
+        function drawVerticalLine(x){
+            context.beginPath();
+            context.moveTo(x+0.5,0);
+            context.lineTo(x+0.5,context.canvas.height);
+            context.stroke();
+        }
+
+        canvas.onmousemove = function (e){
+            var loc = windowToCanvas(canvas,e.clientX,e.clientY);
+
+            drawBackground();
+            drawImages();
+            drawGuidelines(loc.x,loc.y);
+            img.src = 'dog.jpg';
+            img.onload = function(e){
+                drawImages();
+            };
+            drawBackground();
+        }
+    </script>
+</body>
+</html>

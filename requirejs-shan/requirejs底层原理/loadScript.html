@@ -6,6 +6,7 @@
     <script src="1.js" async></script>
     <script src="2.js" async></script>
     <script src="3.js" async></script>
+    //底层动态创建script标签加载文件
     //defer和async的区别
     //defer是IE的语法，async是W3c
     //相同点都是异步加载文件
@@ -21,10 +22,19 @@
     // 在head中创建script标签
     //使用了异步async加载
 //原理2
-    //动态加载js后利用正则表达式解析define或者require
-    //中的文件后继续动态加载js
+    //data-main="index";双引号中字符串代表了一个文件
+    //通过createElement加载
     var oScript = document.createElement('script');
-    oScript.src='x.js';
+    //如果是index则直接这样既可
+    oScript.src='index';
+    //但是index还依赖其他文件如a.js，b.js等
+    // 因此需要解析index里的代码
+    //只有浏览器能解析代码，requirejs不能解析，只能当成一个字符串读到内存
+    //在字符串中进行解析
+    //动态加载js后利用正则表达式解析define或者require的字符串
+    //中的文件后继续动态加载js
+
+
     document.body.appendChild(oScript);
 </script>
 </body>

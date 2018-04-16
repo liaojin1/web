@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: #ddd;
+        }
+        #canvas{
+            background-color: #ffffff;
+            border:thin inset #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width='600' height="300">
+        Canvas not supported
+    </canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        context.font = '38pt Arial';
+        context.fillStyle = 'cornflowerblue';
+        context.strokeStyle = 'blue';
+        context.fillText('hello Canvas',canvas.width/2-150,canvas.height/2+15);
+        context.strokeText('hello Canvas',canvas.width/2-150,canvas.height/2+15);
+    </script>
+</body>
+</html>
