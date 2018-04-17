@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    this is a.com
+    <br>
+    <button id="btn">send</button>
+    <script src='../jquery-3.3.1.js'></script>
+    <script>
+        $('#btn').on('click',function(){
+            $.get('http://www.b.com/');//不能访问b域
+            // 浏览器默认同源策略只能访问同一个域下相互访问，不能跨域
+
+            // cdn加速(Content Delivery Network,即内容分发网络)
+            //     p2p方式下载资源，(在全国寻找离你最近的服务器来进行下载
+            //     提高速度的同时)损耗硬盘和带宽，
+            //     迅雷：
+            //     直接在其他已经下载过所需要的资源的客户端拉取资源，
+            //     客户端本身在下载资源的同时也在上载资源，方便其他用户从
+            //     你的服务器上向下拉取其所需资源。(人人为我我为人人)
+
+            跨域方式：
+            1.jsonp(json+padding)将一个json的数据填充给一个函数，然后通过函数把数据接过来
+            2.iframe
+
+
+            // 想做一个图片资源特别多的网站，并且允许用户上传图片，如果你本身内存不够，而且图片资源加载也很慢
+            // 不要自己购买带宽或者硬盘（浪费），把耗资源，耗硬盘，耗带宽，等图片资源
+            // 把它们给专门做云存储的公司通过他们的接口进行对接，用户上传图片就不是传到你的资源上，而是存到第三方资源上。
+
+            // 只要带src的属性都可以实现跨域
+
+
+
+        });
+    </script>
+</body>
+</html>

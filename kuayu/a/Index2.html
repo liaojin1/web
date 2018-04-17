@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    跨域的原理是script的src属性可以实现跨域请求数据的
+    技巧：调用后端文件进行get接数据
+
+
+
+    <button id="btn">click</button>
+    <div id="div1"></div>
+    <script>
+        // 把文件从b在返回给a
+        function aa(data){
+            //var oDiv = document.getElementById('div1');
+            //oDiv.innerHTML = data;
+            console.log(data.name);
+
+            // alert('xixi'+data);
+            // 向b中传输了name，在b中的php进行拼接，最后在回传给a
+            //可在a的函数中进行输出或者dom操作
+        }
+
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function(){
+            var script = document.createElement('script');
+            script.src = "http://www.b.com/text.php?name=lisi&age=16&callback=aa";
+            document.body.appendChild(script);
+        }
+
+    </script>
+
+    <!-- 向b中传输数据 -->
+    <!-- 此种方式页面只要一加载就自动传输数据
+    如果不想一加载就传输数据而是使用一个按钮控制是否传输数据
+    则需要在按钮单击事件中动态生成script标签 -->
+    <script src="http://www.b.com/text.php?name=lisi&age=16
+    &callback=aa"></script>
+    <!-- 将函数名称一并传输过去，如果不传输过去则函数名需要写死 -->
+
+
+    <!-- script不是只可以加载js文件吗？
+    虽然上边的扩展名为php文件，但是只要保证了php文件中加载完成之后
+    echo返回的是js代码即可
+    这样就可以实现跨域传输数据
+    在网页中如果使用地址传输数据的话必须要跟一个问号
+
+    上述代码为从a页面向b页面传输两个数据，age，name使用&分割 -->
+
+
+
+    <script>
+        $('#btn').on('click',function(){
+            alert('haha');//
+        });
+    </script>
+</body>
+</html>
