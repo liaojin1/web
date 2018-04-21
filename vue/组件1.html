@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 模块粒度比组件要小一些
+    模块：一个function只能是一个模块
+    组件：可能包括html，js，css
+          可以实现一个*完整*的小功能
+    一个组件中可以调用很多模块
+    vue是组件化开发 -->
+
+    <div id="app">
+        <wc msg='这是组件1'></wc>      
+        <wc msg='这是组件2'></wc> 
+        
+        <!-- title不是常量是变量因此前边要加： -->
+        <my-components :content='title'></my-components>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //组件相当于自定义一个标签代表一大堆东西
+        Vue.component('wc',{
+            template:`
+            <div>
+                <h1>{{msg}}</h1>
+                <h1>这是一个全局组建</h1>
+                <h1>这是一个全局组建</h1>
+            </div>
+            `,
+            //如果不加最外层的div 
+            //则会报错，因为自定义标签只能暴露给外部一个dom元素
+            //这样相当于暴露三个            
+            props:['msg'],//如果要在template中传参数的话必须要加props属性
+        });
+
+        new Vue({
+            el:'#app',
+            data:{
+                title:'这是一个局部组件'
+            },
+            //局部组件
+            components:{
+                myComponents:{//如果此处大写则上面需要加-尽量命名统一
+                    template:'<h1>{{content}}</h1>',
+                    props:['content'],
+                }
+            }
+        });
+    </script>
+</body>
+</html>

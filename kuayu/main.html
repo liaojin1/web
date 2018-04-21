@@ -7,11 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <iframe src="sub.html" frameborder="0"></iframe>
-
+    <iframe src="sub.html" frameborder="0" id="iframe1"></iframe>
+    <button id="btn"></button>
     <script>
         function aa(){
             alert('haha');
+        }
+
+        var oBtn = document.getElementById("btn");
+        var oIframe1 = document.getElementById('iframe1');
+        oBtn.onclick = function(){
+            //按下按钮使内嵌的子页面的body背景颜色改变
+            // 所以要在oIframe1内嵌的内容里找documentbody
+            oIframe1.contentWindow.document.body.style.background = 'red';
         }
     </script>
 </body>

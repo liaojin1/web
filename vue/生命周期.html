@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1.没点击button之前没有调用add事件，则只会执行前四个钩子函数
+      beforeCreate,created,beforeMount,mounted
+      前四个阶段只在第一次加载时触发
+    2.点击button触发add方法，则数据更新继续向下执行两个钩子函数
+      beforeUpdate,updated，每次点击都会触发这两个钩子函数
+    3.新建一个button为销毁则会触发beforeDestroy，destroyed
+      销毁仅仅销毁new Vue()的实例化对象，点击add数值没有改变，
+      并不是进行真实dom操作把整个按钮和num都一起删除
+    4.设置定时器进行自动加载num在created或者mounted中都可以
+    5.但是当调用定时器时，点击销毁掉并没有把定时器一并关掉，
+      仅仅数值不进行变化,则需要在销毁之前清除掉计时器
+    <div id="app">
+        <button @click='add'>add</button>
+        <button @click='destroy'>销毁</button>
+        <div>{{num}}</div>
+    </div>
+
+    <script src='vue.js'></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:0,
+                timer:null,
+            },
+            methods:{
+                add(){
+                    this.num++;
+                },
+                destroy(){
+                    this.$destroyed ();
+                }
+            },
+            beforeCreate(){
+                console.log('beforeCreate');                    
+            },
+            created () {
+                //如果ajax请求只是为了准备一些数据，则可以在created里发送ajax请求
+                console.log('created');  
+                
+                //setTimeout定时器;在指定时间后调用函数或计算表达式;进入到;函数
+                //setInterval设置时间间隔, 按照指定时间周期调用函数或计算表达式, 循环
+                // setInterval(()=>{
+                //      this.num++;
+                // },1000); 
+            },
+            beforeMount(){
+                console.log('beforeMount');    
+                
+            },
+            mounted(){
+                //所有的真实的dom操作都要从mounted中完成，前三个阶段是获取不到真实的dom的
+                //如果你的ajax请求需要进行一些真实的dom操作则需要在mounted中发送
+                console.log('mounted挂载'); 
+
+
+                this.timer = setInterval(()=>{
+                    console.log(Math.random());//检测销毁之后计时器还在不在
+                     this.num++;
+                },1000); 
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate');    
+
+            },
+            updated(){
+                console.log('updated');    
+
+            },
+            beforeDestroy(){
+                clearInterval(this.timer);
+                console.log('beforeDestroy这个方法在组件销毁之前被调用');    
+
+            },
+            destroyed () {
+                console.log('destroyed破坏');    
+                
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <style>
+        #app .red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="text-center">
+    <h1 class="text-center">todolist</h1>
+
+    <form class="form-inline" @submit.prevent>
+            <!-- prevent阻止默认行为或者把button中的submit改成button就不提交表单 -->
+            <div class="form-group">
+                <!-- 按回车键实现搜索 -->
+              <input @keyup.enter='search' v-model='keywords' type="text" class="form-control" placeholder="搜索条件">
+            </div>
+            <button @click='search()' type="submit" class="btn btn-primary">搜索</button>
+          </form>
+
+    <form class="form-inline" @submit.prevent>
+        <!-- prevent阻止默认行为或者把button中的submit改成button就不提交表单 -->
+        <div class="form-group">
+          <label for="product-name">商品名称</label>
+          <input v-model='productName' type="text" class="form-control" id="product-name" placeholder="商品名称">
+        </div>
+        <div class="form-group">
+          <label for="product-price">价格</label>
+          <input v-model.number='productPrice' type="number" class="form-control" id="product-price" placeholder="商品价格">
+        </div>
+        <button @click='addProduct()' type="submit" class="btn btn-primary">添加</button>
+      </form>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>选择</td>
+                <td>商品名称</td>
+                <td>商品价格</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-bind:class="{'red':product.isSelected}" v-for='(product,index) in productList' @click="select(product)">
+                <td><input type="checkbox" @click.stop v-model="checkedList" :value=index></td>
+                <td v-text='product.name'></td>
+                <td v-text='product.price'></td>
+                <td>
+                    <!-- 如果不阻止按钮的事件冒泡则会产生按下按钮背景颜色变红 -->
+                    <button @click.stop='delProduct(index)' type="button" class="btn btn-xs btn-warning glyphicon glyphicon-remove"></button>
+                </td>                
+            </tr>
+            <tr >
+                <td><button type="button" class="btn btn-danger" @click='delChecked()'>删除</button></td>
+                <!-- <td colspan="3">总价{{sum}}元</td> -->
+                <td colspan="3">总价{{ csum }}元</td>
+                <!-- csum是一个计算属性，所以不能加括号 -->
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="./bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src='../vue.js'></script>
+    
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            productList:[
+                {
+                    name:'衣服',
+                    price:123,
+                    isSelected:false,
+                },{
+                    name:'裤子',
+                    price:345,
+                    isSelected:false,
+                    
+                },{
+                    name:'鞋',
+                    price:223,
+                    isSelected:false,
+                },{
+                    name:'帽子',
+                    price:88,
+                    isSelected:false,
+                }
+            ],
+            sum:0,
+            checkedList:[],
+            productName:'',
+            productPrice:'',
+            keywords:'',
+        },
+        methods:{//不依赖现有属性
+            select(obj){
+                obj.isSelected = !obj.isSelected;
+                // this.getSum();
+
+            },
+            // getSum(){
+            //      this.sum = 0;
+            //     //let temp = 0;
+            //     this.productList.forEach((item,index)=>{//三个参数第一个循环内容，第二个循环下标第三个循环本身
+            //         if(item.isSelected){
+            //             this.sum += item.price;
+            //             //temp += item.price;
+            //         }
+            //     });
+            //      return this.sum;//此时上边html中修改为调用函数但是会报出一个循环问题的错误
+            //     //修改为局部变量temp即可
+            //     //???为啥
+            //     //return temp;
+            // },
+                delProduct(index){
+                    this.productList.splice(index,1);
+                },
+                delChecked(index){
+                    this.productList = this.productList.filter((item,index)=>{//遍历被选中之后之后赋值给productList
+                        if(!this.checkedList.includes(index)){
+                           return item; 
+                        }
+                    });
+                    this.checkedList = [];
+                },
+                addProduct(){
+                    this.productList.push({
+                        name:this.productName,
+                        price:this.productPrice,
+                        isSelected:false,
+                    })
+                },
+                search(){
+                    this.productList=this.productList.filter((item)=>{
+                        if(item.name.includes(this.keywords)||(item.price+'').includes(this.keywords)){//或者toString()将数字变成字符串
+                            return item;
+                        }
+                    })
+                }
+        },
+        computed:{//定义了一个新的data里的值，相当于一个新的属性，因此名字不能一样
+        //并且关联很多现有属性，这些现有属性为data里的值，
+            //计算属性一定计算现有的属性
+            //计算属性不一定计算一个可能会计算很多个
+            //只要有一个属性发生变化就自动调用这个函数
+            //计算属性含有缓存的因此性能比较好
+            csum(){
+                let temp = 0;
+                this.productList.forEach((item,index) => {
+                    if(item.isSelected){
+                        temp += item.price;
+                    }
+                });
+                return temp; 
+            }
+        }
+    });
+</script>
+
+
+    
+
+   
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 实时更改data数据 -->
+        <!-- <input type="text" v-model='msg'> -->
+        <!-- 失去焦点时才获取数据 -->
+        <!-- <input type="text" v-model.lazy="msg"> -->
+        <!-- 输入数字型就转换为number -->
+        <!-- <input type="text" v-model.number="msg"> -->
+        <!-- 去掉输入的前后空格 -->
+        <input type="text" v-model.trim="msg">
+        <input type="text" v-model='msg'>
+        
+        
+        <!-- 如果vue-model监听同一个数据则默认为单选不需要name来实现同一组 -->        
+        <input type="radio" name="sex" value='男' v-model='sex'>男
+        <input type="radio" name="sex" value='女' v-model='sex'>女        
+        
+        <div>
+            <input type="checkbox" value='basketball' v-model='hobby'>篮球
+            <input type="checkbox" value='soccor' v-model='hobby'>足球
+            <input type="checkbox" value='羽毛球' v-model='hobby'>羽毛球
+        
+        </div>
+        <div>
+            <!-- 下拉菜单获取值都是获取select的值不是value的值 -->
+            <select name="" id="" v-model='city'>
+                <option value="beijing">beijing</option>
+                <option value="shanghai">shanghai</option>
+                <option value="guangzhou">guangzhou</option>
+                
+            </select>
+        </div>
+        <div>
+            <textarea name="" id="" cols="30" rows="10" v-model='info'></textarea>
+        </div>
+        
+
+
+        <div>{{typeof msg}}</div>
+        <div>{{sex}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'',
+                sex:'',
+                hobby:[],
+                city:'',
+                info:''
+            },
+            methods:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <template v-show="isShow">
+            <!-- v-show在template中不好用 -->
+            <h1>123</h1>
+            <h1>12334</h1>
+            <h1>1223</h1>
+            <h1>4455</h1>
+        </template>
+        
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isShow:flase,
+            }
+        });
+    </script>
+</body>
+</html>
