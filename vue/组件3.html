@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div :is='whichComponent'></div>
+        <!--is是切换组件用的，is是一个vue的动态属性-->
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                whichComponent:'component1',
+                //一定是已经定义的组件名称
+            },
+            components:{
+                component1:{
+                    template:'<h1>component1</h1>'
+                },
+                component2:{
+                    template:'<h1>component2</h1>'
+                },
+                component3:{
+                    template:'<h1>component3</h1>'
+                },
+            }
+        });
+    </script>
+</body>
+</html>

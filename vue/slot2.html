@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <comp>
+            <span>张三</span>
+        </comp>
+        <comp>
+            
+        </comp>
+    </div>
+
+    <template id="temp">
+        <div>
+            <p>
+                <!-- 具名插槽-->
+                <!-- 如果不写name则如果是一个不会出错，如果多个则会出错 -->
+                用户名：<slot>默认姓名</slot>
+            </p>
+            <p>
+                年龄：<slot>默认年龄</slot>
+            </p>
+
+        </div>
+        
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            components:{
+                comp:{
+                    template:'#temp',
+                    //把template标签中的代码放入这里，只需要加template的id即可
+                }
+            },
+        });
+    </script>
+</body>
+</html>

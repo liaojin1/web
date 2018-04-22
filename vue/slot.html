@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <comp>
+            <span slot="username">张三</span>
+            <span slot="age">20</span>
+        </comp>
+        <comp>
+            <h4 slot="username"></h4>
+            <span slot="age"></span> 
+        </comp>
+    </div>
+
+    <template id="temp">
+        <div>
+            <p>
+                <!-- 具名插槽:先占住这个位置，以后再说明用什么替换掉 -->
+                用户名：<slot name='username'>默认姓名</slot>
+            </p>
+
+            <p>
+                年龄：<slot name='age'>默认年龄</slot>
+            </p>
+        </div>
+        
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            components:{
+                comp:{
+                    template:'#temp',
+                    //把template标签中的代码放入这里，只需要加template的id即可
+                }
+            },
+        });
+    </script>
+</body>
+</html>

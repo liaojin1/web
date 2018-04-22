@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 简单实现双向数据绑定原理 -->
+    <input type="text" id="ipt">
+    <h1 id="h1"></h1>
+    <script>
+        // let obj = {};
+        // Object.defineProperty(obj,'',{
+        //     get:function(){//获取时调用
+        //         console.log('get');
+        //     },
+        //     set:function(){//设置时调用
+        //         console.log('set');
+        //     },
+        // });
+
+        // obj.name = 'xiaoming';//set
+        // console.log(obj.name);//get
+
+        let oIpt = document.getElementById('ipt');
+        let oH1 = document.getElementById('h1');
+        let obj = {};
+
+        oIpt.onkeyup = function(){
+            obj.name = this.value;
+        }
+
+        Object.defineProperty(obj,'name',{
+            get(){
+
+            },
+            set(val){
+                oH1.innerHTML = val;
+            },
+        });
+    </script>
+</body>
+</html>

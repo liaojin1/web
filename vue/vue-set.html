@@ -10,12 +10,15 @@
     <div id="app">
         <button @click='change()'>change</button>
         <div v-for="item in arr">{{item}}</div>
+        <div v-for="o in obj">{{o}}</div>
+        
     </div>
     <script src="vue.js"></script>
     <script>
         new Vue({
             el:'#app',
             data:{
+                //根级属性
                 arr:['a','b','c','d'],
                 obj:{
                     name:'lisi'
@@ -23,9 +26,14 @@
             },
             methods:{
                 change(){
-                   this.arr.splice(2,1,'e');
-                   this.obj.push('age:'+'12');
-                   return this.arr; 
+                    // this.arr[2] = 'e';不允许通过下标和对象属性直接赋值，但是原生js可以
+                    // this.obj.age = 28;
+
+                //    this.arr.splice(2,1,'e');
+                    Vue.set(this.arr,2,'e');
+                    Vue.set(this.obj,'age',22);
+
+                    Object.assign(this.obj,{age:20});
                 }
             }
         });
