@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    // 组件化渲染
+        function Person (props) {
+            return (
+                <h1>Hello!{props.name}</h1>
+            );
+        }
+        //1.调用了ReactDOM.render()方法
+        const element = <Person name="Bob" />;
+        ReactDOM.render(
+            // <Person/>,
+            element,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
+
+
+
+
+当 <Clock /> 被传递给 ReactDOM.render() 时，
+React 调用 Clock 组件的构造函数。 
+由于 Clock 需要显示当前时间，
+所以使用包含当前时间的对象来初始化 this.state 。
+ 我们稍后会更新此状态。
+
+ React 然后调用 Clock 组件的 render() 方法。
+ 这是 React 了解屏幕上应该显示什么内容，
+ 然后 React 更新 DOM 以匹配 Clock 的渲染输出。
+
+ 当 Clock 的输出插入到 DOM 中时，
+ React 调用 componentDidMount() 生命周期钩子。
+  在其中，Clock 组件要求浏览器设置一个定时器，
+  每秒钟调用一次 tick()。
+
+浏览器每秒钟调用 tick() 方法。 
+在其中，Clock 组件通过使用包含当前时间的对象
+调用 setState() 来调度UI更新。
+ 通过调用 setState() ，React 知道状态已经改变，
+ 并再次调用 render() 方法来确定屏幕上应当显示什么。
+  这一次，render() 方法中的 this.state.date 将不同，
+  所以渲染输出将包含更新的时间，并相应地更新DOM。
+
+  一旦Clock组件被从DOM中移除，
+  React会调用componentWillUnmount()这个钩子函数，
+  定时器也就会被清除。

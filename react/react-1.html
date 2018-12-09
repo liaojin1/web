@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <script type="text/babel">
+        // // 元素渲染
+        //     const user = {
+        //         firstName: "liao",
+        //         lastName: "jin"
+        //     };
+        //     function formatName(user) {
+        //         return user.firstName + " " + user.lastName;
+        //     }
+        //     const element = (
+        //         <h1>{formatName(user)}</h1>
+        //     );
+
+        //     ReactDOM.render(
+        //     // <div>
+        //     //     <h1>hello world</h1>
+        //     //     <h1>Hello, world!</h1>
+        //     // </div>,
+            
+        //     element,
+        //     document.getElementById('root')
+        // );
+
+        // 更新元素渲染
+        function tim () {
+            const element = (
+               <h1>{new Date().toLocaleTimeString()}</h1>
+           );
+           ReactDOM.render(
+               element,
+               document.getElementById('root')
+            );
+        }
+        setInterval(tim, 1000);
+        /*React 元素都是immutable 不可变的。
+        当元素被创建之后，你是无法改变其内容或属性的。
+        一个元素就好像是动画里的一帧，
+        它代表应用界面在某一时间点的样子。*/
+        </script>
+    </div>
+    
+</body>
+</html>
