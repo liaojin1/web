@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<!-- 条件渲染 -->
+    <script type="text/babel">
+        function User(props) {//用户状态
+            return <h1>welcome</h1>;
+        }
+
+        function Guest(props) {//游客状态
+            return <h1>sign up</h1>
+        }
+        
+        function Greet(props) {//
+            const isLogged = props.isLogged;
+            if (isLogged) {
+                return <User />
+            }
+            return <Guest />
+        }
+
+        //元素变量
+        function LoginButton(props) {
+            return (<button onClick={props.onClick}>Login</button>);
+        }
+        
+        function LogoutButton(props) {
+            return (<button onClick={props.onClick}>Logout</button>);
+        }
+//有状态组件
+        class LoginControl extends React.Component {
+            constructor(props) {
+                super(props);
+                this.handleLoginClick = this.handleLoginClick.bind(this);
+                this.handleLogoutClick = this.handleLogoutClick.bind(this);
+                this.state = {
+                    isLogged: false
+                }
+            }
+
+            handleLoginClick() {
+                this.setState({isLogged: true});
+            }
+            handleLogoutClick() {
+                this.setState({isLogged: false});
+            }
+
+            render() {
+                const isLogged = this.state.isLogged;
+
+                let button = null;
+                if (isLogged) {
+                    button = <LogoutButton onClick={this.handleLogoutClick} />
+                } else {
+                    button = <LoginButton onClick={this.handleLoginClick} />
+                }
+                
+                return (
+                    <div>
+                        <Greet isLogged={isLogged} />
+                        {button}
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <LoginControl />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
