@@ -12,14 +12,14 @@
 <body>
     <div id="root"></div>
 
-    <script>
+    <script type="text/babel">
         // 警告组件
         function Warnning (props) {
             if(!props.warn) {
                 return null;
             }
             return (
-                <div>Warning</div>
+                <div>w</div>
             );
         }
 
@@ -43,7 +43,7 @@
                     <div>
                         <Warnning warn = {this.state.isShow} />
                         <button onClick={this.toggleClick}>
-                            {this.state.isShow ? 'hide' : 'show'}
+                            {this.state.isShow ? 'Hide' : 'Show'}
                         </button>
                     </div>
                 );
