@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       /* let obj = {
+            name:'zs',
+            age:24,
+        }    
+
+        let name = Symbol();
+        obj[name] = 'xx';
+
+        console.log(obj);
+//for..in...和for..of..不能取到symbol的name属性
+        for (p in obj) {
+            console.log(p, obj[p]);
+        }
+
+        //取到symbol属性
+        console.log(obj[name]);//xx
+        console.log(obj.name);//zs
+*/
+        let arr = new Set([1,1,2,3,4,1]);
+
+        console.log([...arr]);
+
+        for (let p of arr.keys()) {
+            console.log(p);
+        }
+        for (let p of arr.values()) {
+            console.log(p);
+        }
+        for (let p of arr.entries()) {
+            console.log(p);
+        }
+    </script>
+</body>
+</html>
